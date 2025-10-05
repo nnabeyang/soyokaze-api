@@ -1,0 +1,27 @@
+{
+  "dependencies": [
+    {
+      "location": "https://github.com/bluesky-social/atproto.git",
+      "lexicons": [
+        { "prefix": "app.bsky", "path": "lexicons/app/bsky" },
+        { "prefix": "com.atproto", "path": "lexicons/com/atproto" }
+      ],
+      "state": {
+        "tag": "@atproto/api@0.16.7"
+      }
+    },
+    {
+      "location": "https://github.com/nnabeyang/soyokaze-lexicons.git",
+      "lexicons": [
+        {
+          "prefix": "com.nnabeyang.soyokaze",
+          "path": "lexicons/com/nnabeyang/soyokaze"
+        }
+      ],
+      "state": {
+        "tag": "0.0.2"
+      }
+    }
+  ],
+  "module": "Sources/SoyokazeAPI"
+}

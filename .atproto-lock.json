@@ -1,0 +1,36 @@
+{
+  "dependencies" : [
+    {
+      "lexicons" : [
+        {
+          "path" : "lexicons/app/bsky",
+          "prefix" : "app.bsky"
+        },
+        {
+          "path" : "lexicons/com/atproto",
+          "prefix" : "com.atproto"
+        }
+      ],
+      "location" : "https://github.com/bluesky-social/atproto.git",
+      "state" : {
+        "revision" : "420f3154938b7173c0a1480e24802819b479afbb",
+        "tag" : "@atproto/api@0.16.7"
+      }
+    },
+    {
+      "lexicons" : [
+        {
+          "path" : "lexicons/com/nnabeyang/soyokaze",
+          "prefix" : "com.nnabeyang.soyokaze"
+        }
+      ],
+      "location" : "https://github.com/nnabeyang/soyokaze-lexicons.git",
+      "state" : {
+        "revision" : "6daad256b96322e6416b0d46f03355b103126fa4",
+        "tag" : "0.0.2"
+      }
+    }
+  ],
+  "generator" : "0.29.2",
+  "module" : "Sources/SoyokazeAPI"
+}
