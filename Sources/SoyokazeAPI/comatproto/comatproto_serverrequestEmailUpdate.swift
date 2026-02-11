@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct ServerRequestEmailUpdate_Output: Codable, Sendable {
         public var tokenRequired: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(tokenRequired: Bool) {
             self.tokenRequired = tokenRequired

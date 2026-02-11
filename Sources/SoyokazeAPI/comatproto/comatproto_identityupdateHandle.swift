@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct IdentityUpdateHandle_Input: Codable, Sendable {
         public var handle: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(handle: String) {
             self.handle = handle

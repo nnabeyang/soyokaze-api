@@ -10,11 +10,11 @@ import Foundation
 extension comatprototypes {
     public struct IdentityDefs_IdentityInfo: Codable, Sendable {
         public var did: String
-        public var didDoc: LexiconTypeDecoder
+        public var didDoc: UnknownATPValue
         public var handle: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(did: String, didDoc: LexiconTypeDecoder, handle: String) {
+        public init(did: String, didDoc: UnknownATPValue, handle: String) {
             self.did = did
             self.didDoc = didDoc
             self.handle = handle
@@ -30,7 +30,7 @@ extension comatprototypes {
         public init(from decoder: any Decoder) throws {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.did = try keyedContainer.decode(String.self, forKey: .did)
-            self.didDoc = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .didDoc)
+            self.didDoc = try keyedContainer.decode(UnknownATPValue.self, forKey: .didDoc)
             self.handle = try keyedContainer.decode(String.self, forKey: .handle)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()

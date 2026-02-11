@@ -12,7 +12,7 @@ extension appbskytypes {
         public var actor: ActorDefs_ProfileView
         public var createdAt: String
         public var indexedAt: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actor: ActorDefs_ProfileView, createdAt: String, indexedAt: String) {
             self.actor = actor
@@ -57,7 +57,7 @@ extension appbskytypes {
         public var cursor: String?
         public var likes: [FeedGetLikes_Like]
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String? = nil, cursor: String? = nil, likes: [FeedGetLikes_Like], uri: String) {
             self.cid = cid

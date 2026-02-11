@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct GraphUnmuteActor_Input: Codable, Sendable {
         public var actor: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actor: String) {
             self.actor = actor

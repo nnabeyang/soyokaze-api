@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct AdminUpdateAccountSigningKey_Input: Codable, Sendable {
         public var did: String
         public var signingKey: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String, signingKey: String) {
             self.did = did

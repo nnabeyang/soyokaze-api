@@ -11,7 +11,7 @@ extension comnnabeyangsoyokazetypes {
     public struct NotificationRequestPush_Input: Codable, Sendable {
         public var count: Int
         public var notifications: [NotificationDefs_Notification]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(count: Int, notifications: [NotificationDefs_Notification]) {
             self.count = count

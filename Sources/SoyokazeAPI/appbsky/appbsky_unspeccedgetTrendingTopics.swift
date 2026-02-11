@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct UnspeccedGetTrendingTopics_Output: Codable, Sendable {
         public var suggested: [UnspeccedDefs_TrendingTopic]
         public var topics: [UnspeccedDefs_TrendingTopic]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(suggested: [UnspeccedDefs_TrendingTopic], topics: [UnspeccedDefs_TrendingTopic]) {
             self.suggested = suggested

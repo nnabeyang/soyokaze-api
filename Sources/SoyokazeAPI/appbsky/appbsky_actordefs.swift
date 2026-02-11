@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct ActorDefs_AdultContentPref: Codable, Sendable {
         public var enabled: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(enabled: Bool) {
             self.enabled = enabled
@@ -44,7 +44,7 @@ extension appbskytypes {
 
     public struct ActorDefs_BskyAppProgressGuide: Codable, Sendable {
         public var guide: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(guide: String) {
             self.guide = guide
@@ -80,7 +80,7 @@ extension appbskytypes {
         public var activeProgressGuide: ActorDefs_BskyAppProgressGuide?
         public var nuxs: [ActorDefs_Nux]?
         public var queuedNudges: [String]?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(activeProgressGuide: ActorDefs_BskyAppProgressGuide? = nil, nuxs: [ActorDefs_Nux]? = nil, queuedNudges: [String]? = nil) {
             self.activeProgressGuide = activeProgressGuide
@@ -124,7 +124,7 @@ extension appbskytypes {
         public var label: String
         public var labelerDid: String?
         public var visibility: ActorDefs_ContentLabelPref_Visibility
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(label: String, labelerDid: String? = nil, visibility: ActorDefs_ContentLabelPref_Visibility) {
             self.label = label
@@ -165,8 +165,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_ContentLabelPref_Visibility: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case ignore
         case show
         case warn
@@ -220,7 +218,7 @@ extension appbskytypes {
         public var hideRepliesByLikeCount: Int?
         public var hideRepliesByUnfollowed: Bool?
         public var hideReposts: Bool?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(feed: String, hideQuotePosts: Bool? = nil, hideReplies: Bool? = nil, hideRepliesByLikeCount: Int? = nil, hideRepliesByUnfollowed: Bool? = nil, hideReposts: Bool? = nil) {
             self.feed = feed
@@ -274,7 +272,7 @@ extension appbskytypes {
 
     public struct ActorDefs_HiddenPostsPref: Codable, Sendable {
         public var items: [String]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(items: [String]) {
             self.items = items
@@ -308,7 +306,7 @@ extension appbskytypes {
 
     public struct ActorDefs_InterestsPref: Codable, Sendable {
         public var tags: [String]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(tags: [String]) {
             self.tags = tags
@@ -343,7 +341,7 @@ extension appbskytypes {
     public struct ActorDefs_KnownFollowers: Codable, Sendable {
         public var count: Int
         public var followers: [ActorDefs_ProfileViewBasic]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(count: Int, followers: [ActorDefs_ProfileViewBasic]) {
             self.count = count
@@ -381,7 +379,7 @@ extension appbskytypes {
 
     public struct ActorDefs_LabelerPrefItem: Codable, Sendable {
         public var did: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String) {
             self.did = did
@@ -415,7 +413,7 @@ extension appbskytypes {
 
     public struct ActorDefs_LabelersPref: Codable, Sendable {
         public var labelers: [ActorDefs_LabelerPrefItem]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(labelers: [ActorDefs_LabelerPrefItem]) {
             self.labelers = labelers
@@ -453,7 +451,7 @@ extension appbskytypes {
         public var id: String?
         public var targets: [ActorDefs_MutedWordTarget]
         public var value: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actorTarget: ActorDefs_MutedWord_ActorTarget? = nil, expiresAt: String? = nil, id: String? = nil, targets: [ActorDefs_MutedWordTarget], value: String) {
             self.actorTarget = actorTarget
@@ -502,8 +500,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_MutedWord_ActorTarget: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case all
         case excludeFollowing
         case _other(String)
@@ -542,7 +538,7 @@ extension appbskytypes {
 
     public struct ActorDefs_MutedWordsPref: Codable, Sendable {
         public var items: [ActorDefs_MutedWord]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(items: [ActorDefs_MutedWord]) {
             self.items = items
@@ -575,8 +571,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_MutedWordTarget: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case content
         case tag
         case _other(String)
@@ -618,7 +612,7 @@ extension appbskytypes {
         public var data: String?
         public var expiresAt: String?
         public var id: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(completed: Bool, data: String? = nil, expiresAt: String? = nil, id: String) {
             self.completed = completed
@@ -664,7 +658,7 @@ extension appbskytypes {
 
     public struct ActorDefs_PersonalDetailsPref: Codable, Sendable {
         public var birthDate: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(birthDate: String? = nil) {
             self.birthDate = birthDate
@@ -699,7 +693,7 @@ extension appbskytypes {
     public struct ActorDefs_PostInteractionSettingsPref: Codable, Sendable {
         public var postgateEmbeddingRules: [ActorDefs_PostInteractionSettingsPref_PostgateEmbeddingRules_Elem]?
         public var threadgateAllowRules: [ActorDefs_PostInteractionSettingsPref_ThreadgateAllowRules_Elem]?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(postgateEmbeddingRules: [ActorDefs_PostInteractionSettingsPref_PostgateEmbeddingRules_Elem]? = nil, threadgateAllowRules: [ActorDefs_PostInteractionSettingsPref_ThreadgateAllowRules_Elem]? = nil) {
             self.postgateEmbeddingRules = postgateEmbeddingRules
@@ -743,7 +737,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -754,7 +748,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedPostgateDisableRule(value):
@@ -777,7 +771,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -794,7 +788,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedThreadgateMentionRule(value):
@@ -836,7 +830,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -873,7 +867,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .actorDefsAdultContentPref(value):
@@ -931,7 +925,7 @@ extension appbskytypes {
         public var labeler: Bool?
         public var lists: Int?
         public var starterPacks: Int?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(activitySubscription: ActorDefs_ProfileAssociatedActivitySubscription? = nil, chat: ActorDefs_ProfileAssociatedChat? = nil, feedgens: Int? = nil, labeler: Bool? = nil, lists: Int? = nil, starterPacks: Int? = nil) {
             self.activitySubscription = activitySubscription
@@ -985,7 +979,7 @@ extension appbskytypes {
 
     public struct ActorDefs_ProfileAssociatedActivitySubscription: Codable, Sendable {
         public var allowSubscriptions: ActorDefs_ProfileAssociatedActivitySubscription_AllowSubscriptions
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(allowSubscriptions: ActorDefs_ProfileAssociatedActivitySubscription_AllowSubscriptions) {
             self.allowSubscriptions = allowSubscriptions
@@ -1018,8 +1012,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_ProfileAssociatedActivitySubscription_AllowSubscriptions: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case followers
         case mutuals
         case none
@@ -1063,7 +1055,7 @@ extension appbskytypes {
 
     public struct ActorDefs_ProfileAssociatedChat: Codable, Sendable {
         public var allowIncoming: ActorDefs_ProfileAssociatedChat_AllowIncoming
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(allowIncoming: ActorDefs_ProfileAssociatedChat_AllowIncoming) {
             self.allowIncoming = allowIncoming
@@ -1096,8 +1088,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_ProfileAssociatedChat_AllowIncoming: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case all
         case none
         case following
@@ -1152,7 +1142,7 @@ extension appbskytypes {
         public var status: ActorDefs_StatusView?
         public var verification: ActorDefs_VerificationState?
         public var viewer: ActorDefs_ViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(associated: ActorDefs_ProfileAssociated? = nil, avatar: String? = nil, createdAt: String? = nil, description: String? = nil, did: String, displayName: String? = nil, handle: String, indexedAt: String? = nil, labels: [comatprototypes.LabelDefs_Label]? = nil, status: ActorDefs_StatusView? = nil, verification: ActorDefs_VerificationState? = nil, viewer: ActorDefs_ViewerState? = nil) {
             self.associated = associated
@@ -1239,7 +1229,7 @@ extension appbskytypes {
         public var status: ActorDefs_StatusView?
         public var verification: ActorDefs_VerificationState?
         public var viewer: ActorDefs_ViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(associated: ActorDefs_ProfileAssociated? = nil, avatar: String? = nil, createdAt: String? = nil, did: String, displayName: String? = nil, handle: String, labels: [comatprototypes.LabelDefs_Label]? = nil, status: ActorDefs_StatusView? = nil, verification: ActorDefs_VerificationState? = nil, viewer: ActorDefs_ViewerState? = nil) {
             self.associated = associated
@@ -1326,7 +1316,7 @@ extension appbskytypes {
         public var status: ActorDefs_StatusView?
         public var verification: ActorDefs_VerificationState?
         public var viewer: ActorDefs_ViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(associated: ActorDefs_ProfileAssociated? = nil, avatar: String? = nil, banner: String? = nil, createdAt: String? = nil, description: String? = nil, did: String, displayName: String? = nil, followersCount: Int? = nil, followsCount: Int? = nil, handle: String, indexedAt: String? = nil, joinedViaStarterPack: GraphDefs_StarterPackViewBasic? = nil, labels: [comatprototypes.LabelDefs_Label]? = nil, pinnedPost: comatprototypes.RepoStrongRef? = nil, postsCount: Int? = nil, status: ActorDefs_StatusView? = nil, verification: ActorDefs_VerificationState? = nil, viewer: ActorDefs_ViewerState? = nil) {
             self.associated = associated
@@ -1431,7 +1421,7 @@ extension appbskytypes {
         public var pinned: Bool
         public var type: ActorDefs_SavedFeed_Type
         public var value: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(id: String, pinned: Bool, type: ActorDefs_SavedFeed_Type, value: String) {
             self.id = id
@@ -1476,8 +1466,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_SavedFeed_Type: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case feed
         case list
         case timeline
@@ -1523,7 +1511,7 @@ extension appbskytypes {
         public var pinned: [String]
         public var saved: [String]
         public var timelineIndex: Int?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(pinned: [String], saved: [String], timelineIndex: Int? = nil) {
             self.pinned = pinned
@@ -1565,7 +1553,7 @@ extension appbskytypes {
 
     public struct ActorDefs_SavedFeedsPrefV2: Codable, Sendable {
         public var items: [ActorDefs_SavedFeed]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(items: [ActorDefs_SavedFeed]) {
             self.items = items
@@ -1601,11 +1589,11 @@ extension appbskytypes {
         public var embed: ActorDefs_StatusView_Embed?
         public var expiresAt: String?
         public var isActive: Bool?
-        public var record: LexiconTypeDecoder
+        public var record: UnknownATPValue
         public var status: ActorDefs_StatusView_Status
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(embed: ActorDefs_StatusView_Embed? = nil, expiresAt: String? = nil, isActive: Bool? = nil, record: LexiconTypeDecoder, status: ActorDefs_StatusView_Status) {
+        public init(embed: ActorDefs_StatusView_Embed? = nil, expiresAt: String? = nil, isActive: Bool? = nil, record: UnknownATPValue, status: ActorDefs_StatusView_Status) {
             self.embed = embed
             self.expiresAt = expiresAt
             self.isActive = isActive
@@ -1627,7 +1615,7 @@ extension appbskytypes {
             self.embed = try keyedContainer.decodeIfPresent(ActorDefs_StatusView_Embed.self, forKey: .embed)
             self.expiresAt = try keyedContainer.decodeIfPresent(String.self, forKey: .expiresAt)
             self.isActive = try keyedContainer.decodeIfPresent(Bool.self, forKey: .isActive)
-            self.record = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .record)
+            self.record = try keyedContainer.decode(UnknownATPValue.self, forKey: .record)
             self.status = try keyedContainer.decode(ActorDefs_StatusView_Status.self, forKey: .status)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
@@ -1659,7 +1647,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -1670,7 +1658,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .embedExternalView(value):
@@ -1683,8 +1671,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_StatusView_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case appBskyActorStatusLive
         case _other(String)
 
@@ -1719,7 +1705,7 @@ extension appbskytypes {
     public struct ActorDefs_ThreadViewPref: Codable, Sendable {
         public var prioritizeFollowedUsers: Bool?
         public var sort: ActorDefs_ThreadViewPref_Sort?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(prioritizeFollowedUsers: Bool? = nil, sort: ActorDefs_ThreadViewPref_Sort? = nil) {
             self.prioritizeFollowedUsers = prioritizeFollowedUsers
@@ -1756,8 +1742,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_ThreadViewPref_Sort: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case oldest
         case newest
         case mostLikes
@@ -1811,7 +1795,7 @@ extension appbskytypes {
 
     public struct ActorDefs_VerificationPrefs: Codable, Sendable {
         public var hideBadges: Bool?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(hideBadges: Bool? = nil) {
             self.hideBadges = hideBadges
@@ -1847,7 +1831,7 @@ extension appbskytypes {
         public var trustedVerifierStatus: ActorDefs_VerificationState_TrustedVerifierStatus
         public var verifications: [ActorDefs_VerificationView]
         public var verifiedStatus: ActorDefs_VerificationState_VerifiedStatus
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(trustedVerifierStatus: ActorDefs_VerificationState_TrustedVerifierStatus, verifications: [ActorDefs_VerificationView], verifiedStatus: ActorDefs_VerificationState_VerifiedStatus) {
             self.trustedVerifierStatus = trustedVerifierStatus
@@ -1888,8 +1872,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_VerificationState_TrustedVerifierStatus: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case valid
         case invalid
         case none
@@ -1932,8 +1914,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorDefs_VerificationState_VerifiedStatus: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case valid
         case invalid
         case none
@@ -1980,7 +1960,7 @@ extension appbskytypes {
         public var isValid: Bool
         public var issuer: String
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(createdAt: String, isValid: Bool, issuer: String, uri: String) {
             self.createdAt = createdAt
@@ -2034,7 +2014,7 @@ extension appbskytypes {
         public var knownFollowers: ActorDefs_KnownFollowers?
         public var muted: Bool?
         public var mutedByList: GraphDefs_ListViewBasic?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(activitySubscription: NotificationDefs_ActivitySubscription? = nil, blockedBy: Bool? = nil, blocking: String? = nil, blockingByList: GraphDefs_ListViewBasic? = nil, followedBy: String? = nil, following: String? = nil, knownFollowers: ActorDefs_KnownFollowers? = nil, muted: Bool? = nil, mutedByList: GraphDefs_ListViewBasic? = nil) {
             self.activitySubscription = activitySubscription

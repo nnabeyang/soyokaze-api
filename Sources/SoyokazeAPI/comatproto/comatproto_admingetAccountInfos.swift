@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct AdminGetAccountInfos_Output: Codable, Sendable {
         public var infos: [AdminDefs_AccountView]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(infos: [AdminDefs_AccountView]) {
             self.infos = infos

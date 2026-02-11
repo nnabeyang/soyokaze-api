@@ -12,7 +12,7 @@ extension comatprototypes {
         public var deactivated: AdminDefs_StatusAttr?
         public var subject: AdminUpdateSubjectStatus_Input_Subject
         public var takedown: AdminDefs_StatusAttr?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(deactivated: AdminDefs_StatusAttr? = nil, subject: AdminUpdateSubjectStatus_Input_Subject, takedown: AdminDefs_StatusAttr? = nil) {
             self.deactivated = deactivated
@@ -62,7 +62,7 @@ extension comatprototypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -77,7 +77,7 @@ extension comatprototypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .adminDefsRepoRef(value):
@@ -98,7 +98,7 @@ extension comatprototypes {
     public struct AdminUpdateSubjectStatus_Output: Codable, Sendable {
         public var subject: AdminUpdateSubjectStatus_Output_Subject
         public var takedown: AdminDefs_StatusAttr?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(subject: AdminUpdateSubjectStatus_Output_Subject, takedown: AdminDefs_StatusAttr? = nil) {
             self.subject = subject
@@ -144,7 +144,7 @@ extension comatprototypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -159,7 +159,7 @@ extension comatprototypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .adminDefsRepoRef(value):

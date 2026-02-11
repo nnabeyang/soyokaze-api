@@ -9,8 +9,6 @@ import Foundation
 
 extension appbskytypes {
     public indirect enum NotificationDeclaration_AllowSubscriptions: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case followers
         case mutuals
         case none
@@ -53,8 +51,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_NotificationDeclaration: Codable, Sendable {
-    public let type = "app.bsky.notification.declaration"
+public struct appbskytypes_NotificationDeclaration: ATProtoRecord {
+    public static let nsId = "app.bsky.notification.declaration"
+    public var type: String {
+        Self.nsId
+    }
     public let allowSubscriptions: appbskytypes.NotificationDeclaration_AllowSubscriptions
     public let _unknownValues: [String: AnyCodable]
 
@@ -68,7 +69,7 @@ public final class appbskytypes_NotificationDeclaration: Codable, Sendable {
         case allowSubscriptions
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.allowSubscriptions = try keyedContainer.decode(appbskytypes.NotificationDeclaration_AllowSubscriptions.self, forKey: .allowSubscriptions)
         let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)

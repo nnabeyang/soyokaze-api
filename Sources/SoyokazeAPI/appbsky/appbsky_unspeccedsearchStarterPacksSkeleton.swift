@@ -12,7 +12,7 @@ extension appbskytypes {
         public var cursor: String?
         public var hitsTotal: Int?
         public var starterPacks: [UnspeccedDefs_SkeletonSearchStarterPack]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, hitsTotal: Int? = nil, starterPacks: [UnspeccedDefs_SkeletonSearchStarterPack]) {
             self.cursor = cursor

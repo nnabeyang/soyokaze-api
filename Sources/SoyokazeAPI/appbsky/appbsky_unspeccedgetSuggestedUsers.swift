@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct UnspeccedGetSuggestedUsers_Output: Codable, Sendable {
         public var actors: [ActorDefs_ProfileView]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actors: [ActorDefs_ProfileView]) {
             self.actors = actors

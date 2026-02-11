@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct AdminUpdateAccountEmail_Input: Codable, Sendable {
         public var account: String
         public var email: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(account: String, email: String) {
             self.account = account

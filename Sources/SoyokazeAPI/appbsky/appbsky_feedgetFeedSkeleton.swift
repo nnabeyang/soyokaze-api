@@ -12,7 +12,7 @@ extension appbskytypes {
         public var cursor: String?
         public var feed: [FeedDefs_SkeletonFeedPost]
         public var reqId: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, feed: [FeedDefs_SkeletonFeedPost], reqId: String? = nil) {
             self.cursor = cursor

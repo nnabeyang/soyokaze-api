@@ -13,7 +13,7 @@ extension comatprototypes {
         public var reason: String?
         public var reasonType: ModerationDefs_ReasonType
         public var subject: ModerationCreateReport_Input_Subject
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(modTool: ModerationCreateReport_ModTool? = nil, reason: String? = nil, reasonType: ModerationDefs_ReasonType, subject: ModerationCreateReport_Input_Subject) {
             self.modTool = modTool
@@ -66,7 +66,7 @@ extension comatprototypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -79,7 +79,7 @@ extension comatprototypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .adminDefsRepoRef(value):
@@ -95,11 +95,11 @@ extension comatprototypes {
     }
 
     public struct ModerationCreateReport_ModTool: Codable, Sendable {
-        public var meta: LexiconTypeDecoder?
+        public var meta: UnknownATPValue?
         public var name: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(meta: LexiconTypeDecoder? = nil, name: String) {
+        public init(meta: UnknownATPValue? = nil, name: String) {
             self.meta = meta
             self.name = name
             self._unknownValues = [:]
@@ -112,7 +112,7 @@ extension comatprototypes {
 
         public init(from decoder: any Decoder) throws {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
-            self.meta = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .meta)
+            self.meta = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .meta)
             self.name = try keyedContainer.decode(String.self, forKey: .name)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
@@ -140,7 +140,7 @@ extension comatprototypes {
         public var reasonType: ModerationDefs_ReasonType
         public var reportedBy: String
         public var subject: ModerationCreateReport_Output_Subject
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(createdAt: String, id: Int, reason: String? = nil, reasonType: ModerationDefs_ReasonType, reportedBy: String, subject: ModerationCreateReport_Output_Subject) {
             self.createdAt = createdAt
@@ -201,7 +201,7 @@ extension comatprototypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -214,7 +214,7 @@ extension comatprototypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .adminDefsRepoRef(value):

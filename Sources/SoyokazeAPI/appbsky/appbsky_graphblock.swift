@@ -7,8 +7,11 @@
 import SwiftAtproto
 import Foundation
 
-public final class appbskytypes_GraphBlock: Codable, Sendable {
-    public let type = "app.bsky.graph.block"
+public struct appbskytypes_GraphBlock: ATProtoRecord {
+    public static let nsId = "app.bsky.graph.block"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let subject: String
     public let _unknownValues: [String: AnyCodable]
@@ -25,7 +28,7 @@ public final class appbskytypes_GraphBlock: Codable, Sendable {
         case subject
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.subject = try keyedContainer.decode(String.self, forKey: .subject)

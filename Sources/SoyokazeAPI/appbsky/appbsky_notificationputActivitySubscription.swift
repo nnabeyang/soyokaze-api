@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct NotificationPutActivitySubscription_Input: Codable, Sendable {
         public var activitySubscription: NotificationDefs_ActivitySubscription
         public var subject: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(activitySubscription: NotificationDefs_ActivitySubscription, subject: String) {
             self.activitySubscription = activitySubscription
@@ -50,7 +50,7 @@ extension appbskytypes {
     public struct NotificationPutActivitySubscription_Output: Codable, Sendable {
         public var activitySubscription: NotificationDefs_ActivitySubscription?
         public var subject: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(activitySubscription: NotificationDefs_ActivitySubscription? = nil, subject: String) {
             self.activitySubscription = activitySubscription

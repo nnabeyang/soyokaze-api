@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct NotificationDefs_ActivitySubscription: Codable, Sendable {
         public var post: Bool
         public var reply: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(post: Bool, reply: Bool) {
             self.post = post
@@ -50,7 +50,7 @@ extension appbskytypes {
     public struct NotificationDefs_ChatPreference: Codable, Sendable {
         public var include: NotificationDefs_ChatPreference_Include
         public var push: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(include: NotificationDefs_ChatPreference_Include, push: Bool) {
             self.include = include
@@ -87,8 +87,6 @@ extension appbskytypes {
     }
 
     public indirect enum NotificationDefs_ChatPreference_Include: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case all
         case accepted
         case _other(String)
@@ -129,7 +127,7 @@ extension appbskytypes {
         public var include: NotificationDefs_FilterablePreference_Include
         public var list: Bool
         public var push: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(include: NotificationDefs_FilterablePreference_Include, list: Bool, push: Bool) {
             self.include = include
@@ -170,8 +168,6 @@ extension appbskytypes {
     }
 
     public indirect enum NotificationDefs_FilterablePreference_Include: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case all
         case follows
         case _other(String)
@@ -211,7 +207,7 @@ extension appbskytypes {
     public struct NotificationDefs_Preference: Codable, Sendable {
         public var list: Bool
         public var push: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(list: Bool, push: Bool) {
             self.list = list
@@ -261,7 +257,7 @@ extension appbskytypes {
         public var subscribedPost: NotificationDefs_Preference
         public var unverified: NotificationDefs_Preference
         public var verified: NotificationDefs_Preference
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(chat: NotificationDefs_ChatPreference, follow: NotificationDefs_FilterablePreference, like: NotificationDefs_FilterablePreference, likeViaRepost: NotificationDefs_FilterablePreference, mention: NotificationDefs_FilterablePreference, quote: NotificationDefs_FilterablePreference, reply: NotificationDefs_FilterablePreference, repost: NotificationDefs_FilterablePreference, repostViaRepost: NotificationDefs_FilterablePreference, starterpackJoined: NotificationDefs_Preference, subscribedPost: NotificationDefs_Preference, unverified: NotificationDefs_Preference, verified: NotificationDefs_Preference) {
             self.chat = chat
@@ -342,24 +338,16 @@ extension appbskytypes {
     }
 
     public struct NotificationDefs_RecordDeleted: Codable, Sendable {
-        public let type = "app.bsky.notification.defs#recordDeleted"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -373,7 +361,7 @@ extension appbskytypes {
     public struct NotificationDefs_SubjectActivitySubscription: Codable, Sendable {
         public var activitySubscription: NotificationDefs_ActivitySubscription
         public var subject: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(activitySubscription: NotificationDefs_ActivitySubscription, subject: String) {
             self.activitySubscription = activitySubscription

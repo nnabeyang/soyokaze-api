@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct GraphGetBlocks_Output: Codable, Sendable {
         public var blocks: [ActorDefs_ProfileView]
         public var cursor: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(blocks: [ActorDefs_ProfileView], cursor: String? = nil) {
             self.blocks = blocks

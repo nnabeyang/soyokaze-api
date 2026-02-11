@@ -12,13 +12,13 @@ extension comatprototypes {
         public var accessJwt: String
         public var active: Bool?
         public var did: String
-        public var didDoc: LexiconTypeDecoder?
+        public var didDoc: UnknownATPValue?
         public var handle: String
         public var refreshJwt: String
         public var status: ServerRefreshSession_Output_Status?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(accessJwt: String, active: Bool? = nil, did: String, didDoc: LexiconTypeDecoder? = nil, handle: String, refreshJwt: String, status: ServerRefreshSession_Output_Status? = nil) {
+        public init(accessJwt: String, active: Bool? = nil, did: String, didDoc: UnknownATPValue? = nil, handle: String, refreshJwt: String, status: ServerRefreshSession_Output_Status? = nil) {
             self.accessJwt = accessJwt
             self.active = active
             self.did = did
@@ -44,7 +44,7 @@ extension comatprototypes {
             self.accessJwt = try keyedContainer.decode(String.self, forKey: .accessJwt)
             self.active = try keyedContainer.decodeIfPresent(Bool.self, forKey: .active)
             self.did = try keyedContainer.decode(String.self, forKey: .did)
-            self.didDoc = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .didDoc)
+            self.didDoc = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .didDoc)
             self.handle = try keyedContainer.decode(String.self, forKey: .handle)
             self.refreshJwt = try keyedContainer.decode(String.self, forKey: .refreshJwt)
             self.status = try keyedContainer.decodeIfPresent(ServerRefreshSession_Output_Status.self, forKey: .status)
@@ -73,8 +73,6 @@ extension comatprototypes {
     }
 
     public indirect enum ServerRefreshSession_Output_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case takendown
         case suspended
         case deactivated

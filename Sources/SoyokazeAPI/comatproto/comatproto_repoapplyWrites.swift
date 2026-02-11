@@ -11,10 +11,10 @@ extension comatprototypes {
     public struct RepoApplyWrites_Create: Codable, Sendable {
         public var collection: String
         public var rkey: String?
-        public var value: LexiconTypeDecoder
-        public var _unknownValues: [String: AnyCodable]
+        public var value: UnknownATPValue
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(collection: String, rkey: String? = nil, value: LexiconTypeDecoder) {
+        public init(collection: String, rkey: String? = nil, value: UnknownATPValue) {
             self.collection = collection
             self.rkey = rkey
             self.value = value
@@ -31,7 +31,7 @@ extension comatprototypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.collection = try keyedContainer.decode(String.self, forKey: .collection)
             self.rkey = try keyedContainer.decodeIfPresent(String.self, forKey: .rkey)
-            self.value = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .value)
+            self.value = try keyedContainer.decode(UnknownATPValue.self, forKey: .value)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
@@ -56,7 +56,7 @@ extension comatprototypes {
         public var cid: String
         public var uri: String
         public var validationStatus: RepoApplyWrites_CreateResult_ValidationStatus?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, uri: String, validationStatus: RepoApplyWrites_CreateResult_ValidationStatus? = nil) {
             self.cid = cid
@@ -97,8 +97,6 @@ extension comatprototypes {
     }
 
     public indirect enum RepoApplyWrites_CreateResult_ValidationStatus: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case valid
         case unknown
         case _other(String)
@@ -138,7 +136,7 @@ extension comatprototypes {
     public struct RepoApplyWrites_Delete: Codable, Sendable {
         public var collection: String
         public var rkey: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(collection: String, rkey: String) {
             self.collection = collection
@@ -175,24 +173,16 @@ extension comatprototypes {
     }
 
     public struct RepoApplyWrites_DeleteResult: Codable, Sendable {
-        public let type = "com.atproto.repo.applyWrites#deleteResult"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -208,7 +198,7 @@ extension comatprototypes {
         public var swapCommit: String?
         public var validate: Bool?
         public var writes: [RepoApplyWrites_Input_Writes_Elem]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(repo: String, swapCommit: String? = nil, validate: Bool? = nil, writes: [RepoApplyWrites_Input_Writes_Elem]) {
             self.repo = repo
@@ -262,7 +252,7 @@ extension comatprototypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -277,7 +267,7 @@ extension comatprototypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .repoApplyWritesCreate(value):
@@ -298,7 +288,7 @@ extension comatprototypes {
     public struct RepoApplyWrites_Output: Codable, Sendable {
         public var commit: RepoDefs_CommitMeta?
         public var results: [RepoApplyWrites_Output_Results_Elem]?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(commit: RepoDefs_CommitMeta? = nil, results: [RepoApplyWrites_Output_Results_Elem]? = nil) {
             self.commit = commit
@@ -344,7 +334,7 @@ extension comatprototypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -359,7 +349,7 @@ extension comatprototypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .repoApplyWritesCreateResult(value):
@@ -380,10 +370,10 @@ extension comatprototypes {
     public struct RepoApplyWrites_Update: Codable, Sendable {
         public var collection: String
         public var rkey: String
-        public var value: LexiconTypeDecoder
-        public var _unknownValues: [String: AnyCodable]
+        public var value: UnknownATPValue
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(collection: String, rkey: String, value: LexiconTypeDecoder) {
+        public init(collection: String, rkey: String, value: UnknownATPValue) {
             self.collection = collection
             self.rkey = rkey
             self.value = value
@@ -400,7 +390,7 @@ extension comatprototypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.collection = try keyedContainer.decode(String.self, forKey: .collection)
             self.rkey = try keyedContainer.decode(String.self, forKey: .rkey)
-            self.value = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .value)
+            self.value = try keyedContainer.decode(UnknownATPValue.self, forKey: .value)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
@@ -425,7 +415,7 @@ extension comatprototypes {
         public var cid: String
         public var uri: String
         public var validationStatus: RepoApplyWrites_UpdateResult_ValidationStatus?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, uri: String, validationStatus: RepoApplyWrites_UpdateResult_ValidationStatus? = nil) {
             self.cid = cid
@@ -466,8 +456,6 @@ extension comatprototypes {
     }
 
     public indirect enum RepoApplyWrites_UpdateResult_ValidationStatus: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case valid
         case unknown
         case _other(String)

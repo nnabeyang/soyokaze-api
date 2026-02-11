@@ -18,7 +18,7 @@ extension comatprototypes {
         public var uri: String
         public var val: String
         public var ver: Int?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String? = nil, cts: String, exp: String? = nil, neg: Bool? = nil, sig: Data? = nil, src: String, uri: String, val: String, ver: Int? = nil) {
             self.cid = cid
@@ -83,8 +83,6 @@ extension comatprototypes {
     }
 
     public indirect enum LabelDefs_LabelValue: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case hide
         case noPromote
         case warn
@@ -173,7 +171,7 @@ extension comatprototypes {
         public var identifier: String
         public var locales: [LabelDefs_LabelValueDefinitionStrings]
         public var severity: LabelDefs_LabelValueDefinition_Severity
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(adultOnly: Bool? = nil, blurs: LabelDefs_LabelValueDefinition_Blurs, defaultSetting: LabelDefs_LabelValueDefinition_DefaultSetting? = nil, identifier: String, locales: [LabelDefs_LabelValueDefinitionStrings], severity: LabelDefs_LabelValueDefinition_Severity) {
             self.adultOnly = adultOnly
@@ -226,8 +224,6 @@ extension comatprototypes {
     }
 
     public indirect enum LabelDefs_LabelValueDefinition_Blurs: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case content
         case media
         case none
@@ -270,8 +266,6 @@ extension comatprototypes {
     }
 
     public indirect enum LabelDefs_LabelValueDefinition_DefaultSetting: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case ignore
         case warn
         case hide
@@ -314,8 +308,6 @@ extension comatprototypes {
     }
 
     public indirect enum LabelDefs_LabelValueDefinition_Severity: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case inform
         case alert
         case none
@@ -361,7 +353,7 @@ extension comatprototypes {
         public var description: String
         public var lang: String
         public var name: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(description: String, lang: String, name: String) {
             self.description = description
@@ -403,7 +395,7 @@ extension comatprototypes {
 
     public struct LabelDefs_SelfLabel: Codable, Sendable {
         public var val: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(val: String) {
             self.val = val
@@ -437,7 +429,7 @@ extension comatprototypes {
 
     public struct LabelDefs_SelfLabels: Codable, Sendable {
         public var values: [LabelDefs_SelfLabel]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(values: [LabelDefs_SelfLabel]) {
             self.values = values

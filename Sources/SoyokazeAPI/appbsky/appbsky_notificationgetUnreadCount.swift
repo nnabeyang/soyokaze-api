@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct NotificationGetUnreadCount_Output: Codable, Sendable {
         public var count: Int
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(count: Int) {
             self.count = count

@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct EmbedRecord: Codable, Sendable {
         public var record: comatprototypes.RepoStrongRef
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(record: comatprototypes.RepoStrongRef) {
             self.record = record
@@ -44,7 +44,7 @@ extension appbskytypes {
 
     public struct EmbedRecord_View: Codable, Sendable {
         public var record: EmbedRecord_View_Record
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(record: EmbedRecord_View_Record) {
             self.record = record
@@ -91,7 +91,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -116,7 +116,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .embedRecordViewRecord(value):
@@ -153,7 +153,7 @@ extension appbskytypes {
         public var author: FeedDefs_BlockedAuthor
         public var blocked: Bool
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(author: FeedDefs_BlockedAuthor, blocked: Bool, uri: String) {
             self.author = author
@@ -196,7 +196,7 @@ extension appbskytypes {
     public struct EmbedRecord_ViewDetached: Codable, Sendable {
         public var detached: Bool
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(detached: Bool, uri: String) {
             self.detached = detached
@@ -235,7 +235,7 @@ extension appbskytypes {
     public struct EmbedRecord_ViewNotFound: Codable, Sendable {
         public var notFound: Bool
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(notFound: Bool, uri: String) {
             self.notFound = notFound
@@ -282,10 +282,10 @@ extension appbskytypes {
         public var replyCount: Int?
         public var repostCount: Int?
         public var uri: String
-        public var value: LexiconTypeDecoder
-        public var _unknownValues: [String: AnyCodable]
+        public var value: UnknownATPValue
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(author: ActorDefs_ProfileViewBasic, cid: String, embeds: [EmbedRecord_ViewRecord_Embeds_Elem]? = nil, indexedAt: String, labels: [comatprototypes.LabelDefs_Label]? = nil, likeCount: Int? = nil, quoteCount: Int? = nil, replyCount: Int? = nil, repostCount: Int? = nil, uri: String, value: LexiconTypeDecoder) {
+        public init(author: ActorDefs_ProfileViewBasic, cid: String, embeds: [EmbedRecord_ViewRecord_Embeds_Elem]? = nil, indexedAt: String, labels: [comatprototypes.LabelDefs_Label]? = nil, likeCount: Int? = nil, quoteCount: Int? = nil, replyCount: Int? = nil, repostCount: Int? = nil, uri: String, value: UnknownATPValue) {
             self.author = author
             self.cid = cid
             self.embeds = embeds
@@ -326,7 +326,7 @@ extension appbskytypes {
             self.replyCount = try keyedContainer.decodeIfPresent(Int.self, forKey: .replyCount)
             self.repostCount = try keyedContainer.decodeIfPresent(Int.self, forKey: .repostCount)
             self.uri = try keyedContainer.decode(String.self, forKey: .uri)
-            self.value = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .value)
+            self.value = try keyedContainer.decode(UnknownATPValue.self, forKey: .value)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
@@ -367,7 +367,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -386,7 +386,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .embedImagesView(value):

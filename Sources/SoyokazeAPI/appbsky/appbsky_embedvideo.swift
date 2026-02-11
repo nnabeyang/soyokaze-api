@@ -13,7 +13,7 @@ extension appbskytypes {
         public var aspectRatio: EmbedDefs_AspectRatio?
         public var captions: [EmbedVideo_Caption]?
         public var video: LexBlob
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(alt: String? = nil, aspectRatio: EmbedDefs_AspectRatio? = nil, captions: [EmbedVideo_Caption]? = nil, video: LexBlob) {
             self.alt = alt
@@ -60,7 +60,7 @@ extension appbskytypes {
     public struct EmbedVideo_Caption: Codable, Sendable {
         public var file: LexBlob
         public var lang: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(file: LexBlob, lang: String) {
             self.file = file
@@ -102,7 +102,7 @@ extension appbskytypes {
         public var cid: String
         public var playlist: String
         public var thumbnail: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(alt: String? = nil, aspectRatio: EmbedDefs_AspectRatio? = nil, cid: String, playlist: String, thumbnail: String? = nil) {
             self.alt = alt

@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct GraphGetStarterPack_Output: Codable, Sendable {
         public var starterPack: GraphDefs_StarterPackView
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(starterPack: GraphDefs_StarterPackView) {
             self.starterPack = starterPack

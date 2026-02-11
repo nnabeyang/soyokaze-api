@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct EmbedRecordWithMedia: Codable, Sendable {
         public var media: EmbedRecordWithMedia_Media
         public var record: EmbedRecord
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(media: EmbedRecordWithMedia_Media, record: EmbedRecord) {
             self.media = media
@@ -57,7 +57,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -72,7 +72,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .embedImages(value):
@@ -93,7 +93,7 @@ extension appbskytypes {
     public struct EmbedRecordWithMedia_View: Codable, Sendable {
         public var media: EmbedRecordWithMedia_View_Media
         public var record: EmbedRecord_View
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(media: EmbedRecordWithMedia_View_Media, record: EmbedRecord_View) {
             self.media = media
@@ -139,7 +139,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -154,7 +154,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .embedImagesView(value):

@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct IdentityResolveHandle_Output: Codable, Sendable {
         public var did: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String) {
             self.did = did

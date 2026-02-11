@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct RepoListMissingBlobs_Output: Codable, Sendable {
         public var blobs: [RepoListMissingBlobs_RecordBlob]
         public var cursor: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(blobs: [RepoListMissingBlobs_RecordBlob], cursor: String? = nil) {
             self.blobs = blobs
@@ -50,7 +50,7 @@ extension comatprototypes {
     public struct RepoListMissingBlobs_RecordBlob: Codable, Sendable {
         public var cid: String
         public var recordUri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, recordUri: String) {
             self.cid = cid

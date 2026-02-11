@@ -10,14 +10,14 @@ import Foundation
 extension comatprototypes {
     public struct RepoCreateRecord_Input: Codable, Sendable {
         public var collection: String
-        public var record: LexiconTypeDecoder
+        public var record: UnknownATPValue
         public var repo: String
         public var rkey: String?
         public var swapCommit: String?
         public var validate: Bool?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(collection: String, record: LexiconTypeDecoder, repo: String, rkey: String? = nil, swapCommit: String? = nil, validate: Bool? = nil) {
+        public init(collection: String, record: UnknownATPValue, repo: String, rkey: String? = nil, swapCommit: String? = nil, validate: Bool? = nil) {
             self.collection = collection
             self.record = record
             self.repo = repo
@@ -39,7 +39,7 @@ extension comatprototypes {
         public init(from decoder: any Decoder) throws {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.collection = try keyedContainer.decode(String.self, forKey: .collection)
-            self.record = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .record)
+            self.record = try keyedContainer.decode(UnknownATPValue.self, forKey: .record)
             self.repo = try keyedContainer.decode(String.self, forKey: .repo)
             self.rkey = try keyedContainer.decodeIfPresent(String.self, forKey: .rkey)
             self.swapCommit = try keyedContainer.decodeIfPresent(String.self, forKey: .swapCommit)
@@ -72,7 +72,7 @@ extension comatprototypes {
         public var commit: RepoDefs_CommitMeta?
         public var uri: String
         public var validationStatus: RepoCreateRecord_Output_ValidationStatus?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, commit: RepoDefs_CommitMeta? = nil, uri: String, validationStatus: RepoCreateRecord_Output_ValidationStatus? = nil) {
             self.cid = cid
@@ -117,8 +117,6 @@ extension comatprototypes {
     }
 
     public indirect enum RepoCreateRecord_Output_ValidationStatus: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case valid
         case unknown
         case _other(String)

@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct GraphGetListsWithMembership_ListWithMembership: Codable, Sendable {
         public var list: GraphDefs_ListView
         public var listItem: GraphDefs_ListItemView?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(list: GraphDefs_ListView, listItem: GraphDefs_ListItemView? = nil) {
             self.list = list
@@ -50,7 +50,7 @@ extension appbskytypes {
     public struct GraphGetListsWithMembership_Output: Codable, Sendable {
         public var cursor: String?
         public var listsWithMembership: [GraphGetListsWithMembership_ListWithMembership]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, listsWithMembership: [GraphGetListsWithMembership_ListWithMembership]) {
             self.cursor = cursor
@@ -87,8 +87,6 @@ extension appbskytypes {
     }
 
     public indirect enum GraphGetListsWithMembership_Purposes_Elem: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case modlist
         case curatelist
         case _other(String)

@@ -16,7 +16,7 @@ extension appbskytypes {
         public var message: String?
         public var progress: Int?
         public var state: VideoDefs_JobStatus_State
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(blob: LexBlob? = nil, did: String, error: String? = nil, jobId: String, message: String? = nil, progress: Int? = nil, state: VideoDefs_JobStatus_State) {
             self.blob = blob
@@ -73,8 +73,6 @@ extension appbskytypes {
     }
 
     public indirect enum VideoDefs_JobStatus_State: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case jobStateCompleted
         case jobStateFailed
         case _other(String)

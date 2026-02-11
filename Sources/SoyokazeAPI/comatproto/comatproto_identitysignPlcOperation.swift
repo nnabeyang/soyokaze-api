@@ -11,12 +11,12 @@ extension comatprototypes {
     public struct IdentitySignPlcOperation_Input: Codable, Sendable {
         public var alsoKnownAs: [String]?
         public var rotationKeys: [String]?
-        public var services: LexiconTypeDecoder?
+        public var services: UnknownATPValue?
         public var token: String?
-        public var verificationMethods: LexiconTypeDecoder?
-        public var _unknownValues: [String: AnyCodable]
+        public var verificationMethods: UnknownATPValue?
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(alsoKnownAs: [String]? = nil, rotationKeys: [String]? = nil, services: LexiconTypeDecoder? = nil, token: String? = nil, verificationMethods: LexiconTypeDecoder? = nil) {
+        public init(alsoKnownAs: [String]? = nil, rotationKeys: [String]? = nil, services: UnknownATPValue? = nil, token: String? = nil, verificationMethods: UnknownATPValue? = nil) {
             self.alsoKnownAs = alsoKnownAs
             self.rotationKeys = rotationKeys
             self.services = services
@@ -37,9 +37,9 @@ extension comatprototypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.alsoKnownAs = try keyedContainer.decodeIfPresent([String].self, forKey: .alsoKnownAs)
             self.rotationKeys = try keyedContainer.decodeIfPresent([String].self, forKey: .rotationKeys)
-            self.services = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .services)
+            self.services = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .services)
             self.token = try keyedContainer.decodeIfPresent(String.self, forKey: .token)
-            self.verificationMethods = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .verificationMethods)
+            self.verificationMethods = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .verificationMethods)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
@@ -63,10 +63,10 @@ extension comatprototypes {
     }
 
     public struct IdentitySignPlcOperation_Output: Codable, Sendable {
-        public var operation: LexiconTypeDecoder
-        public var _unknownValues: [String: AnyCodable]
+        public var operation: UnknownATPValue
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(operation: LexiconTypeDecoder) {
+        public init(operation: UnknownATPValue) {
             self.operation = operation
             self._unknownValues = [:]
         }
@@ -77,7 +77,7 @@ extension comatprototypes {
 
         public init(from decoder: any Decoder) throws {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
-            self.operation = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .operation)
+            self.operation = try keyedContainer.decode(UnknownATPValue.self, forKey: .operation)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {

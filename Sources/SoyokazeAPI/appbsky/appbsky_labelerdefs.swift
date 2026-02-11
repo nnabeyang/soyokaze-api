@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct LabelerDefs_LabelerPolicies: Codable, Sendable {
         public var labelValueDefinitions: [comatprototypes.LabelDefs_LabelValueDefinition]?
         public var labelValues: [comatprototypes.LabelDefs_LabelValue]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(labelValueDefinitions: [comatprototypes.LabelDefs_LabelValueDefinition]? = nil, labelValues: [comatprototypes.LabelDefs_LabelValue]) {
             self.labelValueDefinitions = labelValueDefinitions
@@ -55,7 +55,7 @@ extension appbskytypes {
         public var likeCount: Int?
         public var uri: String
         public var viewer: LabelerDefs_LabelerViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, creator: ActorDefs_ProfileView, indexedAt: String, labels: [comatprototypes.LabelDefs_Label]? = nil, likeCount: Int? = nil, uri: String, viewer: LabelerDefs_LabelerViewerState? = nil) {
             self.cid = cid
@@ -123,7 +123,7 @@ extension appbskytypes {
         public var subjectTypes: [comatprototypes.ModerationDefs_SubjectType]?
         public var uri: String
         public var viewer: LabelerDefs_LabelerViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, creator: ActorDefs_ProfileView, indexedAt: String, labels: [comatprototypes.LabelDefs_Label]? = nil, likeCount: Int? = nil, policies: LabelerDefs_LabelerPolicies, reasonTypes: [comatprototypes.ModerationDefs_ReasonType]? = nil, subjectCollections: [String]? = nil, subjectTypes: [comatprototypes.ModerationDefs_SubjectType]? = nil, uri: String, viewer: LabelerDefs_LabelerViewerState? = nil) {
             self.cid = cid
@@ -197,7 +197,7 @@ extension appbskytypes {
 
     public struct LabelerDefs_LabelerViewerState: Codable, Sendable {
         public var like: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(like: String? = nil) {
             self.like = like

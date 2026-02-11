@@ -14,7 +14,7 @@ extension comatprototypes {
         public var recipientDid: String
         public var senderDid: String
         public var subject: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(comment: String? = nil, content: String, recipientDid: String, senderDid: String, subject: String? = nil) {
             self.comment = comment
@@ -64,7 +64,7 @@ extension comatprototypes {
 
     public struct AdminSendEmail_Output: Codable, Sendable {
         public var sent: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(sent: Bool) {
             self.sent = sent

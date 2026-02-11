@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct UnspeccedGetTaggedSuggestions_Output: Codable, Sendable {
         public var suggestions: [UnspeccedGetTaggedSuggestions_Suggestion]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(suggestions: [UnspeccedGetTaggedSuggestions_Suggestion]) {
             self.suggestions = suggestions
@@ -46,7 +46,7 @@ extension appbskytypes {
         public var subject: String
         public var subjectType: UnspeccedGetTaggedSuggestions_Suggestion_SubjectType
         public var tag: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(subject: String, subjectType: UnspeccedGetTaggedSuggestions_Suggestion_SubjectType, tag: String) {
             self.subject = subject
@@ -87,8 +87,6 @@ extension appbskytypes {
     }
 
     public indirect enum UnspeccedGetTaggedSuggestions_Suggestion_SubjectType: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case actor
         case feed
         case _other(String)

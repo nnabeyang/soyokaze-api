@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct GraphStarterpack_FeedItem: Codable, Sendable {
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(uri: String) {
             self.uri = uri
@@ -43,8 +43,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_GraphStarterpack: Codable, Sendable {
-    public let type = "app.bsky.graph.starterpack"
+public struct appbskytypes_GraphStarterpack: ATProtoRecord {
+    public static let nsId = "app.bsky.graph.starterpack"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let description: String?
     public let descriptionFacets: [appbskytypes.RichtextFacet]?
@@ -73,7 +76,7 @@ public final class appbskytypes_GraphStarterpack: Codable, Sendable {
         case name
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.description = try keyedContainer.decodeIfPresent(String.self, forKey: .description)

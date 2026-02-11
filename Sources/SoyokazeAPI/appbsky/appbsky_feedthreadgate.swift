@@ -19,7 +19,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -36,7 +36,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedThreadgateMentionRule(value):
@@ -58,24 +58,16 @@ extension appbskytypes {
     }
 
     public struct FeedThreadgate_FollowerRule: Codable, Sendable {
-        public let type = "app.bsky.feed.threadgate#followerRule"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -87,24 +79,16 @@ extension appbskytypes {
     }
 
     public struct FeedThreadgate_FollowingRule: Codable, Sendable {
-        public let type = "app.bsky.feed.threadgate#followingRule"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -117,7 +101,7 @@ extension appbskytypes {
 
     public struct FeedThreadgate_ListRule: Codable, Sendable {
         public var list: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(list: String) {
             self.list = list
@@ -150,24 +134,16 @@ extension appbskytypes {
     }
 
     public struct FeedThreadgate_MentionRule: Codable, Sendable {
-        public let type = "app.bsky.feed.threadgate#mentionRule"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -179,8 +155,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_FeedThreadgate: Codable, Sendable {
-    public let type = "app.bsky.feed.threadgate"
+public struct appbskytypes_FeedThreadgate: ATProtoRecord {
+    public static let nsId = "app.bsky.feed.threadgate"
+    public var type: String {
+        Self.nsId
+    }
     public let allow: [appbskytypes.FeedThreadgate_Allow_Elem]?
     public let createdAt: String
     public let hiddenReplies: [String]?
@@ -203,7 +182,7 @@ public final class appbskytypes_FeedThreadgate: Codable, Sendable {
         case post
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.allow = try keyedContainer.decodeIfPresent([appbskytypes.FeedThreadgate_Allow_Elem].self, forKey: .allow)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)

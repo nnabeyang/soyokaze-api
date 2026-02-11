@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct TempCheckHandleAvailability_Output: Codable, Sendable {
         public var handle: String
         public var result: TempCheckHandleAvailability_Output_Result
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(handle: String, result: TempCheckHandleAvailability_Output_Result) {
             self.handle = handle
@@ -56,7 +56,7 @@ extension comatprototypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -69,7 +69,7 @@ extension comatprototypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .tempCheckHandleAvailabilityResultAvailable(value):
@@ -85,24 +85,16 @@ extension comatprototypes {
     }
 
     public struct TempCheckHandleAvailability_ResultAvailable: Codable, Sendable {
-        public let type = "com.atproto.temp.checkHandleAvailability#resultAvailable"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -115,7 +107,7 @@ extension comatprototypes {
 
     public struct TempCheckHandleAvailability_ResultUnavailable: Codable, Sendable {
         public var suggestions: [TempCheckHandleAvailability_Suggestion]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(suggestions: [TempCheckHandleAvailability_Suggestion]) {
             self.suggestions = suggestions
@@ -150,7 +142,7 @@ extension comatprototypes {
     public struct TempCheckHandleAvailability_Suggestion: Codable, Sendable {
         public var handle: String
         public var method: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(handle: String, method: String) {
             self.handle = handle

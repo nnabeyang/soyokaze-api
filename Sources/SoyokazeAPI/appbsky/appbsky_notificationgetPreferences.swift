@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct NotificationGetPreferences_Output: Codable, Sendable {
         public var preferences: NotificationDefs_Preferences
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(preferences: NotificationDefs_Preferences) {
             self.preferences = preferences

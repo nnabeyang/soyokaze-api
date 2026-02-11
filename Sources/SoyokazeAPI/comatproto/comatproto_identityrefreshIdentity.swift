@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct IdentityRefreshIdentity_Input: Codable, Sendable {
         public var identifier: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(identifier: String) {
             self.identifier = identifier

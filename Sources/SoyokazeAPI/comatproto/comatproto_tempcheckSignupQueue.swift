@@ -12,7 +12,7 @@ extension comatprototypes {
         public var activated: Bool
         public var estimatedTimeMs: Int?
         public var placeInQueue: Int?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(activated: Bool, estimatedTimeMs: Int? = nil, placeInQueue: Int? = nil) {
             self.activated = activated

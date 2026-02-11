@@ -13,7 +13,7 @@ extension comatprototypes {
         public var hostname: String
         public var seq: Int?
         public var status: SyncDefs_HostStatus?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(accountCount: Int? = nil, hostname: String, seq: Int? = nil, status: SyncDefs_HostStatus? = nil) {
             self.accountCount = accountCount
@@ -60,7 +60,7 @@ extension comatprototypes {
     public struct SyncListHosts_Output: Codable, Sendable {
         public var cursor: String?
         public var hosts: [SyncListHosts_Host]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, hosts: [SyncListHosts_Host]) {
             self.cursor = cursor

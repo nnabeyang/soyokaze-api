@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct SyncListBlobs_Output: Codable, Sendable {
         public var cids: [String]
         public var cursor: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cids: [String], cursor: String? = nil) {
             self.cids = cids

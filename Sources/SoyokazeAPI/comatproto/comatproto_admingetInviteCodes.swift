@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct AdminGetInviteCodes_Output: Codable, Sendable {
         public var codes: [ServerDefs_InviteCode]
         public var cursor: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(codes: [ServerDefs_InviteCode], cursor: String? = nil) {
             self.codes = codes
@@ -48,8 +48,6 @@ extension comatprototypes {
     }
 
     public indirect enum AdminGetInviteCodes_Sort: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case recent
         case usage
         case _other(String)

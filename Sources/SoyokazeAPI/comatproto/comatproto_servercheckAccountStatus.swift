@@ -18,7 +18,7 @@ extension comatprototypes {
         public var repoCommit: String
         public var repoRev: String
         public var validDid: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(activated: Bool, expectedBlobs: Int, importedBlobs: Int, indexedRecords: Int, privateStateValues: Int, repoBlocks: Int, repoCommit: String, repoRev: String, validDid: Bool) {
             self.activated = activated

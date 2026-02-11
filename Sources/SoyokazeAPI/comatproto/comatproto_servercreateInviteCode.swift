@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct ServerCreateInviteCode_Input: Codable, Sendable {
         public var forAccount: String?
         public var useCount: Int
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(forAccount: String? = nil, useCount: Int) {
             self.forAccount = forAccount
@@ -49,7 +49,7 @@ extension comatprototypes {
 
     public struct ServerCreateInviteCode_Output: Codable, Sendable {
         public var code: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(code: String) {
             self.code = code

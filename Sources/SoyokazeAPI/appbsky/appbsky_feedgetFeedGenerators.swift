@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct FeedGetFeedGenerators_Output: Codable, Sendable {
         public var feeds: [FeedDefs_GeneratorView]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(feeds: [FeedDefs_GeneratorView]) {
             self.feeds = feeds

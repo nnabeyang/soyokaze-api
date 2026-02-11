@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct UnspeccedGetSuggestedUsersSkeleton_Output: Codable, Sendable {
         public var dids: [String]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(dids: [String]) {
             self.dids = dids

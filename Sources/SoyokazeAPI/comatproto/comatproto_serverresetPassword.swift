@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct ServerResetPassword_Input: Codable, Sendable {
         public var password: String
         public var token: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(password: String, token: String) {
             self.password = password

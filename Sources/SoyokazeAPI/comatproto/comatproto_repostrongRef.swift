@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct RepoStrongRef: Codable, Sendable {
         public var cid: String
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, uri: String) {
             self.cid = cid

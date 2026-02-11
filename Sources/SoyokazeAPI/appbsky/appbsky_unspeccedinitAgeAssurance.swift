@@ -12,7 +12,7 @@ extension appbskytypes {
         public var countryCode: String
         public var email: String
         public var language: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(countryCode: String, email: String, language: String) {
             self.countryCode = countryCode

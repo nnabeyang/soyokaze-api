@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct AdminSearchAccounts_Output: Codable, Sendable {
         public var accounts: [AdminDefs_AccountView]
         public var cursor: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(accounts: [AdminDefs_AccountView], cursor: String? = nil) {
             self.accounts = accounts

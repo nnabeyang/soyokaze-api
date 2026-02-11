@@ -7,8 +7,11 @@
 import SwiftAtproto
 import Foundation
 
-public final class appbskytypes_FeedLike: Codable, Sendable {
-    public let type = "app.bsky.feed.like"
+public struct appbskytypes_FeedLike: ATProtoRecord {
+    public static let nsId = "app.bsky.feed.like"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let subject: comatprototypes.RepoStrongRef
     public let via: comatprototypes.RepoStrongRef?
@@ -28,7 +31,7 @@ public final class appbskytypes_FeedLike: Codable, Sendable {
         case via
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.subject = try keyedContainer.decode(comatprototypes.RepoStrongRef.self, forKey: .subject)

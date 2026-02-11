@@ -16,7 +16,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -27,7 +27,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .comAtprotoLabelDefsSelfLabels(value):
@@ -40,8 +40,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_GraphList: Codable, Sendable {
-    public let type = "app.bsky.graph.list"
+public struct appbskytypes_GraphList: ATProtoRecord {
+    public static let nsId = "app.bsky.graph.list"
+    public var type: String {
+        Self.nsId
+    }
     public let avatar: LexBlob?
     public let createdAt: String
     public let description: String?
@@ -73,7 +76,7 @@ public final class appbskytypes_GraphList: Codable, Sendable {
         case purpose
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.avatar = try keyedContainer.decodeIfPresent(LexBlob.self, forKey: .avatar)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)

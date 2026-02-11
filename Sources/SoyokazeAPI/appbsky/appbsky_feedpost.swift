@@ -20,7 +20,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -39,7 +39,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .embedImages(value):
@@ -67,7 +67,7 @@ extension appbskytypes {
         public var index: FeedPost_TextSlice
         public var type: String
         public var value: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(index: FeedPost_TextSlice, type: String, value: String) {
             self.index = index
@@ -115,7 +115,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -126,7 +126,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .comAtprotoLabelDefsSelfLabels(value):
@@ -141,7 +141,7 @@ extension appbskytypes {
     public struct FeedPost_ReplyRef: Codable, Sendable {
         public var parent: comatprototypes.RepoStrongRef
         public var root: comatprototypes.RepoStrongRef
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(parent: comatprototypes.RepoStrongRef, root: comatprototypes.RepoStrongRef) {
             self.parent = parent
@@ -180,7 +180,7 @@ extension appbskytypes {
     public struct FeedPost_TextSlice: Codable, Sendable {
         public var end: Int
         public var start: Int
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(end: Int, start: Int) {
             self.end = end
@@ -217,8 +217,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_FeedPost: Codable, Sendable {
-    public let type = "app.bsky.feed.post"
+public struct appbskytypes_FeedPost: ATProtoRecord {
+    public static let nsId = "app.bsky.feed.post"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let embed: appbskytypes.FeedPost_Embed?
     public let entities: [appbskytypes.FeedPost_Entity]?
@@ -256,7 +259,7 @@ public final class appbskytypes_FeedPost: Codable, Sendable {
         case text
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.embed = try keyedContainer.decodeIfPresent(appbskytypes.FeedPost_Embed.self, forKey: .embed)

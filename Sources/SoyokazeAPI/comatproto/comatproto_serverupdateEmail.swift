@@ -12,7 +12,7 @@ extension comatprototypes {
         public var email: String
         public var emailAuthFactor: Bool?
         public var token: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(email: String, emailAuthFactor: Bool? = nil, token: String? = nil) {
             self.email = email

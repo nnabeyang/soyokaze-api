@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct FeedDefs_BlockedAuthor: Codable, Sendable {
         public var did: String
         public var viewer: ActorDefs_ViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String, viewer: ActorDefs_ViewerState? = nil) {
             self.did = did
@@ -51,7 +51,7 @@ extension appbskytypes {
         public var author: FeedDefs_BlockedAuthor
         public var blocked: Bool
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(author: FeedDefs_BlockedAuthor, blocked: Bool, uri: String) {
             self.author = author
@@ -97,7 +97,7 @@ extension appbskytypes {
         public var reason: FeedDefs_FeedViewPost_Reason?
         public var reply: FeedDefs_ReplyRef?
         public var reqId: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(feedContext: String? = nil, post: FeedDefs_PostView, reason: FeedDefs_FeedViewPost_Reason? = nil, reply: FeedDefs_ReplyRef? = nil, reqId: String? = nil) {
             self.feedContext = feedContext
@@ -154,7 +154,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -167,7 +167,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedDefsReasonRepost(value):
@@ -197,7 +197,7 @@ extension appbskytypes {
         public var likeCount: Int?
         public var uri: String
         public var viewer: FeedDefs_GeneratorViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(acceptsInteractions: Bool? = nil, avatar: String? = nil, cid: String, contentMode: FeedDefs_GeneratorView_ContentMode? = nil, creator: ActorDefs_ProfileView, description: String? = nil, descriptionFacets: [RichtextFacet]? = nil, did: String, displayName: String, indexedAt: String, labels: [comatprototypes.LabelDefs_Label]? = nil, likeCount: Int? = nil, uri: String, viewer: FeedDefs_GeneratorViewerState? = nil) {
             self.acceptsInteractions = acceptsInteractions
@@ -282,8 +282,6 @@ extension appbskytypes {
     }
 
     public indirect enum FeedDefs_GeneratorView_ContentMode: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case appBskyFeedDefsContentmodeunspecified
         case appBskyFeedDefsContentmodevideo
         case _other(String)
@@ -322,7 +320,7 @@ extension appbskytypes {
 
     public struct FeedDefs_GeneratorViewerState: Codable, Sendable {
         public var like: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(like: String? = nil) {
             self.like = like
@@ -359,7 +357,7 @@ extension appbskytypes {
         public var feedContext: String?
         public var item: String?
         public var reqId: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(event: FeedDefs_Interaction_Event? = nil, feedContext: String? = nil, item: String? = nil, reqId: String? = nil) {
             self.event = event
@@ -404,8 +402,6 @@ extension appbskytypes {
     }
 
     public indirect enum FeedDefs_Interaction_Event: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case appBskyFeedDefsRequestless
         case appBskyFeedDefsRequestmore
         case appBskyFeedDefsClickthroughitem
@@ -495,7 +491,7 @@ extension appbskytypes {
     public struct FeedDefs_NotFoundPost: Codable, Sendable {
         public var notFound: Bool
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(notFound: Bool, uri: String) {
             self.notFound = notFound
@@ -540,15 +536,15 @@ extension appbskytypes {
         public var labels: [comatprototypes.LabelDefs_Label]?
         public var likeCount: Int?
         public var quoteCount: Int?
-        public var record: LexiconTypeDecoder
+        public var record: UnknownATPValue
         public var replyCount: Int?
         public var repostCount: Int?
         public var threadgate: FeedDefs_ThreadgateView?
         public var uri: String
         public var viewer: FeedDefs_ViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(author: ActorDefs_ProfileViewBasic, bookmarkCount: Int? = nil, cid: String, embed: FeedDefs_PostView_Embed? = nil, indexedAt: String, labels: [comatprototypes.LabelDefs_Label]? = nil, likeCount: Int? = nil, quoteCount: Int? = nil, record: LexiconTypeDecoder, replyCount: Int? = nil, repostCount: Int? = nil, threadgate: FeedDefs_ThreadgateView? = nil, uri: String, viewer: FeedDefs_ViewerState? = nil) {
+        public init(author: ActorDefs_ProfileViewBasic, bookmarkCount: Int? = nil, cid: String, embed: FeedDefs_PostView_Embed? = nil, indexedAt: String, labels: [comatprototypes.LabelDefs_Label]? = nil, likeCount: Int? = nil, quoteCount: Int? = nil, record: UnknownATPValue, replyCount: Int? = nil, repostCount: Int? = nil, threadgate: FeedDefs_ThreadgateView? = nil, uri: String, viewer: FeedDefs_ViewerState? = nil) {
             self.author = author
             self.bookmarkCount = bookmarkCount
             self.cid = cid
@@ -593,7 +589,7 @@ extension appbskytypes {
             self.labels = try keyedContainer.decodeIfPresent([comatprototypes.LabelDefs_Label].self, forKey: .labels)
             self.likeCount = try keyedContainer.decodeIfPresent(Int.self, forKey: .likeCount)
             self.quoteCount = try keyedContainer.decodeIfPresent(Int.self, forKey: .quoteCount)
-            self.record = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .record)
+            self.record = try keyedContainer.decode(UnknownATPValue.self, forKey: .record)
             self.replyCount = try keyedContainer.decodeIfPresent(Int.self, forKey: .replyCount)
             self.repostCount = try keyedContainer.decodeIfPresent(Int.self, forKey: .repostCount)
             self.threadgate = try keyedContainer.decodeIfPresent(FeedDefs_ThreadgateView.self, forKey: .threadgate)
@@ -642,7 +638,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -661,7 +657,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .embedImagesView(value):
@@ -686,24 +682,16 @@ extension appbskytypes {
     }
 
     public struct FeedDefs_ReasonPin: Codable, Sendable {
-        public let type = "app.bsky.feed.defs#reasonPin"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -719,7 +707,7 @@ extension appbskytypes {
         public var cid: String?
         public var indexedAt: String
         public var uri: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(by: ActorDefs_ProfileViewBasic, cid: String? = nil, indexedAt: String, uri: String? = nil) {
             self.by = by
@@ -767,7 +755,7 @@ extension appbskytypes {
         public var grandparentAuthor: ActorDefs_ProfileViewBasic?
         public var parent: FeedDefs_ReplyRef_Parent
         public var root: FeedDefs_ReplyRef_Root
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(grandparentAuthor: ActorDefs_ProfileViewBasic? = nil, parent: FeedDefs_ReplyRef_Parent, root: FeedDefs_ReplyRef_Root) {
             self.grandparentAuthor = grandparentAuthor
@@ -817,7 +805,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -832,7 +820,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedDefsPostView(value):
@@ -860,7 +848,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -875,7 +863,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedDefsPostView(value):
@@ -897,7 +885,7 @@ extension appbskytypes {
         public var feedContext: String?
         public var post: String
         public var reason: FeedDefs_SkeletonFeedPost_Reason?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(feedContext: String? = nil, post: String, reason: FeedDefs_SkeletonFeedPost_Reason? = nil) {
             self.feedContext = feedContext
@@ -946,7 +934,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -959,7 +947,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedDefsSkeletonReasonRepost(value):
@@ -975,24 +963,16 @@ extension appbskytypes {
     }
 
     public struct FeedDefs_SkeletonReasonPin: Codable, Sendable {
-        public let type = "app.bsky.feed.defs#skeletonReasonPin"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -1005,7 +985,7 @@ extension appbskytypes {
 
     public struct FeedDefs_SkeletonReasonRepost: Codable, Sendable {
         public var repost: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(repost: String) {
             self.repost = repost
@@ -1039,7 +1019,7 @@ extension appbskytypes {
 
     public struct FeedDefs_ThreadContext: Codable, Sendable {
         public var rootAuthorLike: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(rootAuthorLike: String? = nil) {
             self.rootAuthorLike = rootAuthorLike
@@ -1074,11 +1054,11 @@ extension appbskytypes {
     public struct FeedDefs_ThreadgateView: Codable, Sendable {
         public var cid: String?
         public var lists: [GraphDefs_ListViewBasic]?
-        public var record: LexiconTypeDecoder?
+        public var record: UnknownATPValue?
         public var uri: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(cid: String? = nil, lists: [GraphDefs_ListViewBasic]? = nil, record: LexiconTypeDecoder? = nil, uri: String? = nil) {
+        public init(cid: String? = nil, lists: [GraphDefs_ListViewBasic]? = nil, record: UnknownATPValue? = nil, uri: String? = nil) {
             self.cid = cid
             self.lists = lists
             self.record = record
@@ -1097,7 +1077,7 @@ extension appbskytypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.cid = try keyedContainer.decodeIfPresent(String.self, forKey: .cid)
             self.lists = try keyedContainer.decodeIfPresent([GraphDefs_ListViewBasic].self, forKey: .lists)
-            self.record = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .record)
+            self.record = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .record)
             self.uri = try keyedContainer.decodeIfPresent(String.self, forKey: .uri)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
@@ -1125,7 +1105,7 @@ extension appbskytypes {
         public var post: FeedDefs_PostView
         public var replies: [FeedDefs_ThreadViewPost_Replies_Elem]?
         public var threadContext: FeedDefs_ThreadContext?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(parent: FeedDefs_ThreadViewPost_Parent? = nil, post: FeedDefs_PostView, replies: [FeedDefs_ThreadViewPost_Replies_Elem]? = nil, threadContext: FeedDefs_ThreadContext? = nil) {
             self.parent = parent
@@ -1179,7 +1159,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -1194,7 +1174,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedDefsThreadViewPost(value):
@@ -1222,7 +1202,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -1237,7 +1217,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedDefsThreadViewPost(value):
@@ -1263,7 +1243,7 @@ extension appbskytypes {
         public var replyDisabled: Bool?
         public var repost: String?
         public var threadMuted: Bool?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(bookmarked: Bool? = nil, embeddingDisabled: Bool? = nil, like: String? = nil, pinned: Bool? = nil, replyDisabled: Bool? = nil, repost: String? = nil, threadMuted: Bool? = nil) {
             self.bookmarked = bookmarked

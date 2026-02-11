@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct VideoUploadVideo_Output: Codable, Sendable {
         public var jobStatus: VideoDefs_JobStatus
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(jobStatus: VideoDefs_JobStatus) {
             self.jobStatus = jobStatus

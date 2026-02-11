@@ -9,8 +9,6 @@ import Foundation
 
 extension comatprototypes {
     public indirect enum ModerationDefs_ReasonType: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case comAtprotoModerationDefsReasonspam
         case comAtprotoModerationDefsReasonviolation
         case comAtprotoModerationDefsReasonmisleading
@@ -73,8 +71,6 @@ extension comatprototypes {
     }
 
     public indirect enum ModerationDefs_SubjectType: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case account
         case record
         case chat

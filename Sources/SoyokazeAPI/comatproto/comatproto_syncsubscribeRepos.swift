@@ -14,7 +14,7 @@ extension comatprototypes {
         public var seq: Int
         public var status: SyncSubscribeRepos_Account_Status?
         public var time: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(active: Bool, did: String, seq: Int, status: SyncSubscribeRepos_Account_Status? = nil, time: String) {
             self.active = active
@@ -63,8 +63,6 @@ extension comatprototypes {
     }
 
     public indirect enum SyncSubscribeRepos_Account_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case takendown
         case suspended
         case deleted
@@ -134,7 +132,7 @@ extension comatprototypes {
         public var since: String?
         public var time: String
         public var tooBig: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(blobs: [LexLink], blocks: Data, commit: LexLink, ops: [SyncSubscribeRepos_RepoOp], prevData: LexLink? = nil, rebase: Bool, repo: String, rev: String, seq: Int, since: String? = nil, time: String, tooBig: Bool) {
             self.blobs = blobs
@@ -215,7 +213,7 @@ extension comatprototypes {
         public var handle: String?
         public var seq: Int
         public var time: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String, handle: String? = nil, seq: Int, time: String) {
             self.did = did
@@ -262,7 +260,7 @@ extension comatprototypes {
     public struct SyncSubscribeRepos_Info: Codable, Sendable {
         public var message: String?
         public var name: SyncSubscribeRepos_Info_Name
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(message: String? = nil, name: SyncSubscribeRepos_Info_Name) {
             self.message = message
@@ -299,8 +297,6 @@ extension comatprototypes {
     }
 
     public indirect enum SyncSubscribeRepos_Info_Name: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case outdatedcursor
         case _other(String)
 
@@ -337,7 +333,7 @@ extension comatprototypes {
         public var cid: LexLink?
         public var path: String
         public var prev: LexLink?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(action: SyncSubscribeRepos_RepoOp_Action, cid: LexLink? = nil, path: String, prev: LexLink? = nil) {
             self.action = action
@@ -382,8 +378,6 @@ extension comatprototypes {
     }
 
     public indirect enum SyncSubscribeRepos_RepoOp_Action: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case create
         case update
         case delete
@@ -431,7 +425,7 @@ extension comatprototypes {
         public var rev: String
         public var seq: Int
         public var time: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(blocks: Data, did: String, rev: String, seq: Int, time: String) {
             self.blocks = blocks

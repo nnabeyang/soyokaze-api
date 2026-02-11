@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct UnspeccedGetConfig_LiveNowConfig: Codable, Sendable {
         public var did: String
         public var domains: [String]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String, domains: [String]) {
             self.did = did
@@ -50,7 +50,7 @@ extension appbskytypes {
     public struct UnspeccedGetConfig_Output: Codable, Sendable {
         public var checkEmailConfirmed: Bool?
         public var liveNow: [UnspeccedGetConfig_LiveNowConfig]?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(checkEmailConfirmed: Bool? = nil, liveNow: [UnspeccedGetConfig_LiveNowConfig]? = nil) {
             self.checkEmailConfirmed = checkEmailConfirmed

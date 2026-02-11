@@ -17,7 +17,7 @@ extension appbskytypes {
         public var initIp: String?
         public var initUa: String?
         public var status: UnspeccedDefs_AgeAssuranceEvent_Status
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(attemptId: String, completeIp: String? = nil, completeUa: String? = nil, createdAt: String, email: String? = nil, initIp: String? = nil, initUa: String? = nil, status: UnspeccedDefs_AgeAssuranceEvent_Status) {
             self.attemptId = attemptId
@@ -78,8 +78,6 @@ extension appbskytypes {
     }
 
     public indirect enum UnspeccedDefs_AgeAssuranceEvent_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case unknown
         case pending
         case assured
@@ -124,7 +122,7 @@ extension appbskytypes {
     public struct UnspeccedDefs_AgeAssuranceState: Codable, Sendable {
         public var lastInitiatedAt: String?
         public var status: UnspeccedDefs_AgeAssuranceState_Status
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(lastInitiatedAt: String? = nil, status: UnspeccedDefs_AgeAssuranceState_Status) {
             self.lastInitiatedAt = lastInitiatedAt
@@ -161,8 +159,6 @@ extension appbskytypes {
     }
 
     public indirect enum UnspeccedDefs_AgeAssuranceState_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case unknown
         case pending
         case assured
@@ -211,7 +207,7 @@ extension appbskytypes {
 
     public struct UnspeccedDefs_SkeletonSearchActor: Codable, Sendable {
         public var did: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String) {
             self.did = did
@@ -245,7 +241,7 @@ extension appbskytypes {
 
     public struct UnspeccedDefs_SkeletonSearchPost: Codable, Sendable {
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(uri: String) {
             self.uri = uri
@@ -279,7 +275,7 @@ extension appbskytypes {
 
     public struct UnspeccedDefs_SkeletonSearchStarterPack: Codable, Sendable {
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(uri: String) {
             self.uri = uri
@@ -320,7 +316,7 @@ extension appbskytypes {
         public var startedAt: String
         public var status: UnspeccedDefs_SkeletonTrend_Status?
         public var topic: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(category: String? = nil, dids: [String], displayName: String, link: String, postCount: Int, startedAt: String, status: UnspeccedDefs_SkeletonTrend_Status? = nil, topic: String) {
             self.category = category
@@ -381,8 +377,6 @@ extension appbskytypes {
     }
 
     public indirect enum UnspeccedDefs_SkeletonTrend_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case hot
         case _other(String)
 
@@ -416,7 +410,7 @@ extension appbskytypes {
 
     public struct UnspeccedDefs_ThreadItemBlocked: Codable, Sendable {
         public var author: FeedDefs_BlockedAuthor
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(author: FeedDefs_BlockedAuthor) {
             self.author = author
@@ -449,24 +443,16 @@ extension appbskytypes {
     }
 
     public struct UnspeccedDefs_ThreadItemNotFound: Codable, Sendable {
-        public let type = "app.bsky.unspecced.defs#threadItemNotFound"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -478,24 +464,16 @@ extension appbskytypes {
     }
 
     public struct UnspeccedDefs_ThreadItemNoUnauthenticated: Codable, Sendable {
-        public let type = "app.bsky.unspecced.defs#threadItemNoUnauthenticated"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -513,7 +491,7 @@ extension appbskytypes {
         public var mutedByViewer: Bool
         public var opThread: Bool
         public var post: FeedDefs_PostView
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(hiddenByThreadgate: Bool, moreParents: Bool, moreReplies: Int, mutedByViewer: Bool, opThread: Bool, post: FeedDefs_PostView) {
             self.hiddenByThreadgate = hiddenByThreadgate
@@ -570,7 +548,7 @@ extension appbskytypes {
         public var displayName: String?
         public var link: String
         public var topic: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(description: String? = nil, displayName: String? = nil, link: String, topic: String) {
             self.description = description
@@ -623,7 +601,7 @@ extension appbskytypes {
         public var startedAt: String
         public var status: UnspeccedDefs_TrendView_Status?
         public var topic: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actors: [ActorDefs_ProfileViewBasic], category: String? = nil, displayName: String, link: String, postCount: Int, startedAt: String, status: UnspeccedDefs_TrendView_Status? = nil, topic: String) {
             self.actors = actors
@@ -684,8 +662,6 @@ extension appbskytypes {
     }
 
     public indirect enum UnspeccedDefs_TrendView_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case hot
         case _other(String)
 

@@ -12,7 +12,7 @@ extension appbskytypes {
         public var isFallback: Bool?
         public var recId: Int?
         public var suggestions: [ActorDefs_ProfileView]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(isFallback: Bool? = nil, recId: Int? = nil, suggestions: [ActorDefs_ProfileView]) {
             self.isFallback = isFallback

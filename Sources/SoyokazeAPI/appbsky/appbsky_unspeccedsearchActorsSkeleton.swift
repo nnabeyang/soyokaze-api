@@ -12,7 +12,7 @@ extension appbskytypes {
         public var actors: [UnspeccedDefs_SkeletonSearchActor]
         public var cursor: String?
         public var hitsTotal: Int?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actors: [UnspeccedDefs_SkeletonSearchActor], cursor: String? = nil, hitsTotal: Int? = nil) {
             self.actors = actors

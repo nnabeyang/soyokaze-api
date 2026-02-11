@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct FeedDescribeFeedGenerator_Feed: Codable, Sendable {
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(uri: String) {
             self.uri = uri
@@ -45,7 +45,7 @@ extension appbskytypes {
     public struct FeedDescribeFeedGenerator_Links: Codable, Sendable {
         public var privacyPolicy: String?
         public var termsOfService: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(privacyPolicy: String? = nil, termsOfService: String? = nil) {
             self.privacyPolicy = privacyPolicy
@@ -85,7 +85,7 @@ extension appbskytypes {
         public var did: String
         public var feeds: [FeedDescribeFeedGenerator_Feed]
         public var links: FeedDescribeFeedGenerator_Links?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String, feeds: [FeedDescribeFeedGenerator_Feed], links: FeedDescribeFeedGenerator_Links? = nil) {
             self.did = did

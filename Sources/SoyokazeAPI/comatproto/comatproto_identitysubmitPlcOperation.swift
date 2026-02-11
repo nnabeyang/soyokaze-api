@@ -9,10 +9,10 @@ import Foundation
 
 extension comatprototypes {
     public struct IdentitySubmitPlcOperation_Input: Codable, Sendable {
-        public var operation: LexiconTypeDecoder
-        public var _unknownValues: [String: AnyCodable]
+        public var operation: UnknownATPValue
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(operation: LexiconTypeDecoder) {
+        public init(operation: UnknownATPValue) {
             self.operation = operation
             self._unknownValues = [:]
         }
@@ -23,7 +23,7 @@ extension comatprototypes {
 
         public init(from decoder: any Decoder) throws {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
-            self.operation = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .operation)
+            self.operation = try keyedContainer.decode(UnknownATPValue.self, forKey: .operation)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {

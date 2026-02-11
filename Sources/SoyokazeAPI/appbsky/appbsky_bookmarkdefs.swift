@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct BookmarkDefs_Bookmark: Codable, Sendable {
         public var subject: comatprototypes.RepoStrongRef
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(subject: comatprototypes.RepoStrongRef) {
             self.subject = subject
@@ -46,7 +46,7 @@ extension appbskytypes {
         public var createdAt: String?
         public var item: BookmarkDefs_BookmarkView_Item
         public var subject: comatprototypes.RepoStrongRef
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(createdAt: String? = nil, item: BookmarkDefs_BookmarkView_Item, subject: comatprototypes.RepoStrongRef) {
             self.createdAt = createdAt
@@ -96,7 +96,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -111,7 +111,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedDefsBlockedPost(value):

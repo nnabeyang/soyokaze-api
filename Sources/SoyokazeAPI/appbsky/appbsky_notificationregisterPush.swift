@@ -14,7 +14,7 @@ extension appbskytypes {
         public var platform: NotificationRegisterPush_Input_Platform
         public var serviceDid: String
         public var token: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(ageRestricted: Bool? = nil, appId: String, platform: NotificationRegisterPush_Input_Platform, serviceDid: String, token: String) {
             self.ageRestricted = ageRestricted
@@ -63,8 +63,6 @@ extension appbskytypes {
     }
 
     public indirect enum NotificationRegisterPush_Input_Platform: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case ios
         case android
         case web

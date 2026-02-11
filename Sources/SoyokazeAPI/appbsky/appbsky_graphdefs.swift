@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct GraphDefs_ListItemView: Codable, Sendable {
         public var subject: ActorDefs_ProfileView
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(subject: ActorDefs_ProfileView, uri: String) {
             self.subject = subject
@@ -48,8 +48,6 @@ extension appbskytypes {
     }
 
     public indirect enum GraphDefs_ListPurpose: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case appBskyGraphDefsModlist
         case appBskyGraphDefsCuratelist
         case appBskyGraphDefsReferencelist
@@ -104,7 +102,7 @@ extension appbskytypes {
         public var purpose: GraphDefs_ListPurpose
         public var uri: String
         public var viewer: GraphDefs_ListViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(avatar: String? = nil, cid: String, creator: ActorDefs_ProfileView, description: String? = nil, descriptionFacets: [RichtextFacet]? = nil, indexedAt: String, labels: [comatprototypes.LabelDefs_Label]? = nil, listItemCount: Int? = nil, name: String, purpose: GraphDefs_ListPurpose, uri: String, viewer: GraphDefs_ListViewerState? = nil) {
             self.avatar = avatar
@@ -190,7 +188,7 @@ extension appbskytypes {
         public var purpose: GraphDefs_ListPurpose
         public var uri: String
         public var viewer: GraphDefs_ListViewerState?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(avatar: String? = nil, cid: String, indexedAt: String? = nil, labels: [comatprototypes.LabelDefs_Label]? = nil, listItemCount: Int? = nil, name: String, purpose: GraphDefs_ListPurpose, uri: String, viewer: GraphDefs_ListViewerState? = nil) {
             self.avatar = avatar
@@ -257,7 +255,7 @@ extension appbskytypes {
     public struct GraphDefs_ListViewerState: Codable, Sendable {
         public var blocked: String?
         public var muted: Bool?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(blocked: String? = nil, muted: Bool? = nil) {
             self.blocked = blocked
@@ -296,7 +294,7 @@ extension appbskytypes {
     public struct GraphDefs_NotFoundActor: Codable, Sendable {
         public var actor: String
         public var notFound: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actor: String, notFound: Bool) {
             self.actor = actor
@@ -336,7 +334,7 @@ extension appbskytypes {
         public var did: String
         public var followedBy: String?
         public var following: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String, followedBy: String? = nil, following: String? = nil) {
             self.did = did
@@ -386,11 +384,11 @@ extension appbskytypes {
         public var labels: [comatprototypes.LabelDefs_Label]?
         public var list: GraphDefs_ListViewBasic?
         public var listItemsSample: [GraphDefs_ListItemView]?
-        public var record: LexiconTypeDecoder
+        public var record: UnknownATPValue
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(cid: String, creator: ActorDefs_ProfileViewBasic, feeds: [FeedDefs_GeneratorView]? = nil, indexedAt: String, joinedAllTimeCount: Int? = nil, joinedWeekCount: Int? = nil, labels: [comatprototypes.LabelDefs_Label]? = nil, list: GraphDefs_ListViewBasic? = nil, listItemsSample: [GraphDefs_ListItemView]? = nil, record: LexiconTypeDecoder, uri: String) {
+        public init(cid: String, creator: ActorDefs_ProfileViewBasic, feeds: [FeedDefs_GeneratorView]? = nil, indexedAt: String, joinedAllTimeCount: Int? = nil, joinedWeekCount: Int? = nil, labels: [comatprototypes.LabelDefs_Label]? = nil, list: GraphDefs_ListViewBasic? = nil, listItemsSample: [GraphDefs_ListItemView]? = nil, record: UnknownATPValue, uri: String) {
             self.cid = cid
             self.creator = creator
             self.feeds = feeds
@@ -430,7 +428,7 @@ extension appbskytypes {
             self.labels = try keyedContainer.decodeIfPresent([comatprototypes.LabelDefs_Label].self, forKey: .labels)
             self.list = try keyedContainer.decodeIfPresent(GraphDefs_ListViewBasic.self, forKey: .list)
             self.listItemsSample = try keyedContainer.decodeIfPresent([GraphDefs_ListItemView].self, forKey: .listItemsSample)
-            self.record = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .record)
+            self.record = try keyedContainer.decode(UnknownATPValue.self, forKey: .record)
             self.uri = try keyedContainer.decode(String.self, forKey: .uri)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
@@ -468,11 +466,11 @@ extension appbskytypes {
         public var joinedWeekCount: Int?
         public var labels: [comatprototypes.LabelDefs_Label]?
         public var listItemCount: Int?
-        public var record: LexiconTypeDecoder
+        public var record: UnknownATPValue
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(cid: String, creator: ActorDefs_ProfileViewBasic, indexedAt: String, joinedAllTimeCount: Int? = nil, joinedWeekCount: Int? = nil, labels: [comatprototypes.LabelDefs_Label]? = nil, listItemCount: Int? = nil, record: LexiconTypeDecoder, uri: String) {
+        public init(cid: String, creator: ActorDefs_ProfileViewBasic, indexedAt: String, joinedAllTimeCount: Int? = nil, joinedWeekCount: Int? = nil, labels: [comatprototypes.LabelDefs_Label]? = nil, listItemCount: Int? = nil, record: UnknownATPValue, uri: String) {
             self.cid = cid
             self.creator = creator
             self.indexedAt = indexedAt
@@ -506,7 +504,7 @@ extension appbskytypes {
             self.joinedWeekCount = try keyedContainer.decodeIfPresent(Int.self, forKey: .joinedWeekCount)
             self.labels = try keyedContainer.decodeIfPresent([comatprototypes.LabelDefs_Label].self, forKey: .labels)
             self.listItemCount = try keyedContainer.decodeIfPresent(Int.self, forKey: .listItemCount)
-            self.record = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .record)
+            self.record = try keyedContainer.decode(UnknownATPValue.self, forKey: .record)
             self.uri = try keyedContainer.decode(String.self, forKey: .uri)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()

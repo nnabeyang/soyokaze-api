@@ -9,10 +9,10 @@ import Foundation
 
 extension comatprototypes {
     public struct IdentityResolveDid_Output: Codable, Sendable {
-        public var didDoc: LexiconTypeDecoder
-        public var _unknownValues: [String: AnyCodable]
+        public var didDoc: UnknownATPValue
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(didDoc: LexiconTypeDecoder) {
+        public init(didDoc: UnknownATPValue) {
             self.didDoc = didDoc
             self._unknownValues = [:]
         }
@@ -23,7 +23,7 @@ extension comatprototypes {
 
         public init(from decoder: any Decoder) throws {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
-            self.didDoc = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .didDoc)
+            self.didDoc = try keyedContainer.decode(UnknownATPValue.self, forKey: .didDoc)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {

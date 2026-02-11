@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct SyncGetLatestCommit_Output: Codable, Sendable {
         public var cid: String
         public var rev: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, rev: String) {
             self.cid = cid

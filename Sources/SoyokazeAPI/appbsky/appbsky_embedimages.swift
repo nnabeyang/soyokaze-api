@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct EmbedImages: Codable, Sendable {
         public var images: [EmbedImages_Image]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(images: [EmbedImages_Image]) {
             self.images = images
@@ -46,7 +46,7 @@ extension appbskytypes {
         public var alt: String
         public var aspectRatio: EmbedDefs_AspectRatio?
         public var image: LexBlob
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(alt: String, aspectRatio: EmbedDefs_AspectRatio? = nil, image: LexBlob) {
             self.alt = alt
@@ -88,7 +88,7 @@ extension appbskytypes {
 
     public struct EmbedImages_View: Codable, Sendable {
         public var images: [EmbedImages_ViewImage]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(images: [EmbedImages_ViewImage]) {
             self.images = images
@@ -125,7 +125,7 @@ extension appbskytypes {
         public var aspectRatio: EmbedDefs_AspectRatio?
         public var fullsize: String
         public var thumb: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(alt: String, aspectRatio: EmbedDefs_AspectRatio? = nil, fullsize: String, thumb: String) {
             self.alt = alt

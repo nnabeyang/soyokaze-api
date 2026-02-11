@@ -7,8 +7,11 @@
 import SwiftAtproto
 import Foundation
 
-public final class appbskytypes_GraphVerification: Codable, Sendable {
-    public let type = "app.bsky.graph.verification"
+public struct appbskytypes_GraphVerification: ATProtoRecord {
+    public static let nsId = "app.bsky.graph.verification"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let displayName: String
     public let handle: String
@@ -31,7 +34,7 @@ public final class appbskytypes_GraphVerification: Codable, Sendable {
         case subject
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.displayName = try keyedContainer.decode(String.self, forKey: .displayName)

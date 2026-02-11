@@ -14,7 +14,7 @@ extension comnnabeyangsoyokazetypes {
         public var reason: NotificationDefs_Notification_Reason
         public var subjectUri: String?
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(body: String? = nil, creator: String, reason: NotificationDefs_Notification_Reason, subjectUri: String? = nil, uri: String) {
             self.body = body
@@ -63,8 +63,6 @@ extension comnnabeyangsoyokazetypes {
     }
 
     public indirect enum NotificationDefs_Notification_Reason: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case like
         case repost
         case follow

@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct GraphGetListBlocks_Output: Codable, Sendable {
         public var cursor: String?
         public var lists: [GraphDefs_ListView]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, lists: [GraphDefs_ListView]) {
             self.cursor = cursor

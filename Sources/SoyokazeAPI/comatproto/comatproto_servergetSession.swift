@@ -11,15 +11,15 @@ extension comatprototypes {
     public struct ServerGetSession_Output: Codable, Sendable {
         public var active: Bool?
         public var did: String
-        public var didDoc: LexiconTypeDecoder?
+        public var didDoc: UnknownATPValue?
         public var email: String?
         public var emailAuthFactor: Bool?
         public var emailConfirmed: Bool?
         public var handle: String
         public var status: ServerGetSession_Output_Status?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(active: Bool? = nil, did: String, didDoc: LexiconTypeDecoder? = nil, email: String? = nil, emailAuthFactor: Bool? = nil, emailConfirmed: Bool? = nil, handle: String, status: ServerGetSession_Output_Status? = nil) {
+        public init(active: Bool? = nil, did: String, didDoc: UnknownATPValue? = nil, email: String? = nil, emailAuthFactor: Bool? = nil, emailConfirmed: Bool? = nil, handle: String, status: ServerGetSession_Output_Status? = nil) {
             self.active = active
             self.did = did
             self.didDoc = didDoc
@@ -46,7 +46,7 @@ extension comatprototypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.active = try keyedContainer.decodeIfPresent(Bool.self, forKey: .active)
             self.did = try keyedContainer.decode(String.self, forKey: .did)
-            self.didDoc = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .didDoc)
+            self.didDoc = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .didDoc)
             self.email = try keyedContainer.decodeIfPresent(String.self, forKey: .email)
             self.emailAuthFactor = try keyedContainer.decodeIfPresent(Bool.self, forKey: .emailAuthFactor)
             self.emailConfirmed = try keyedContainer.decodeIfPresent(Bool.self, forKey: .emailConfirmed)
@@ -78,8 +78,6 @@ extension comatprototypes {
     }
 
     public indirect enum ServerGetSession_Output_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case takendown
         case suspended
         case deactivated

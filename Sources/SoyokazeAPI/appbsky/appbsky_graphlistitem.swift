@@ -7,8 +7,11 @@
 import SwiftAtproto
 import Foundation
 
-public final class appbskytypes_GraphListitem: Codable, Sendable {
-    public let type = "app.bsky.graph.listitem"
+public struct appbskytypes_GraphListitem: ATProtoRecord {
+    public static let nsId = "app.bsky.graph.listitem"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let list: String
     public let subject: String
@@ -28,7 +31,7 @@ public final class appbskytypes_GraphListitem: Codable, Sendable {
         case subject
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.list = try keyedContainer.decode(String.self, forKey: .list)

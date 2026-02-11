@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct BookmarkGetBookmarks_Output: Codable, Sendable {
         public var bookmarks: [BookmarkDefs_BookmarkView]
         public var cursor: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(bookmarks: [BookmarkDefs_BookmarkView], cursor: String? = nil) {
             self.bookmarks = bookmarks

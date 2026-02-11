@@ -13,7 +13,7 @@ extension comatprototypes {
         public var did: String
         public var rev: String?
         public var status: SyncGetRepoStatus_Output_Status?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(active: Bool, did: String, rev: String? = nil, status: SyncGetRepoStatus_Output_Status? = nil) {
             self.active = active
@@ -58,8 +58,6 @@ extension comatprototypes {
     }
 
     public indirect enum SyncGetRepoStatus_Output_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case takendown
         case suspended
         case deleted

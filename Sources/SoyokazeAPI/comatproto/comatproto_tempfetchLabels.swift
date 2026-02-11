@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct TempFetchLabels_Output: Codable, Sendable {
         public var labels: [LabelDefs_Label]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(labels: [LabelDefs_Label]) {
             self.labels = labels

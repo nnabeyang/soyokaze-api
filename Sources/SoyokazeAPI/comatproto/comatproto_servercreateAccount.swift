@@ -14,13 +14,13 @@ extension comatprototypes {
         public var handle: String
         public var inviteCode: String?
         public var password: String?
-        public var plcOp: LexiconTypeDecoder?
+        public var plcOp: UnknownATPValue?
         public var recoveryKey: String?
         public var verificationCode: String?
         public var verificationPhone: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(did: String? = nil, email: String? = nil, handle: String, inviteCode: String? = nil, password: String? = nil, plcOp: LexiconTypeDecoder? = nil, recoveryKey: String? = nil, verificationCode: String? = nil, verificationPhone: String? = nil) {
+        public init(did: String? = nil, email: String? = nil, handle: String, inviteCode: String? = nil, password: String? = nil, plcOp: UnknownATPValue? = nil, recoveryKey: String? = nil, verificationCode: String? = nil, verificationPhone: String? = nil) {
             self.did = did
             self.email = email
             self.handle = handle
@@ -52,7 +52,7 @@ extension comatprototypes {
             self.handle = try keyedContainer.decode(String.self, forKey: .handle)
             self.inviteCode = try keyedContainer.decodeIfPresent(String.self, forKey: .inviteCode)
             self.password = try keyedContainer.decodeIfPresent(String.self, forKey: .password)
-            self.plcOp = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .plcOp)
+            self.plcOp = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .plcOp)
             self.recoveryKey = try keyedContainer.decodeIfPresent(String.self, forKey: .recoveryKey)
             self.verificationCode = try keyedContainer.decodeIfPresent(String.self, forKey: .verificationCode)
             self.verificationPhone = try keyedContainer.decodeIfPresent(String.self, forKey: .verificationPhone)
@@ -85,12 +85,12 @@ extension comatprototypes {
     public struct ServerCreateAccount_Output: Codable, Sendable {
         public var accessJwt: String
         public var did: String
-        public var didDoc: LexiconTypeDecoder?
+        public var didDoc: UnknownATPValue?
         public var handle: String
         public var refreshJwt: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(accessJwt: String, did: String, didDoc: LexiconTypeDecoder? = nil, handle: String, refreshJwt: String) {
+        public init(accessJwt: String, did: String, didDoc: UnknownATPValue? = nil, handle: String, refreshJwt: String) {
             self.accessJwt = accessJwt
             self.did = did
             self.didDoc = didDoc
@@ -111,7 +111,7 @@ extension comatprototypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.accessJwt = try keyedContainer.decode(String.self, forKey: .accessJwt)
             self.did = try keyedContainer.decode(String.self, forKey: .did)
-            self.didDoc = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .didDoc)
+            self.didDoc = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .didDoc)
             self.handle = try keyedContainer.decode(String.self, forKey: .handle)
             self.refreshJwt = try keyedContainer.decode(String.self, forKey: .refreshJwt)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)

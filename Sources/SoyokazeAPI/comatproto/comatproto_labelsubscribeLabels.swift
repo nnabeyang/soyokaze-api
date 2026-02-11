@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct LabelSubscribeLabels_Info: Codable, Sendable {
         public var message: String?
         public var name: LabelSubscribeLabels_Info_Name
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(message: String? = nil, name: LabelSubscribeLabels_Info_Name) {
             self.message = message
@@ -48,8 +48,6 @@ extension comatprototypes {
     }
 
     public indirect enum LabelSubscribeLabels_Info_Name: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case outdatedcursor
         case _other(String)
 
@@ -84,7 +82,7 @@ extension comatprototypes {
     public struct LabelSubscribeLabels_Labels: Codable, Sendable {
         public var labels: [LabelDefs_Label]
         public var seq: Int
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(labels: [LabelDefs_Label], seq: Int) {
             self.labels = labels

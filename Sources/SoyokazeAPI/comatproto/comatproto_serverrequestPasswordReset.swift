@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct ServerRequestPasswordReset_Input: Codable, Sendable {
         public var email: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(email: String) {
             self.email = email

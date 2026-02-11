@@ -9,8 +9,6 @@ import Foundation
 
 extension comatprototypes {
     public indirect enum SyncDefs_HostStatus: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case active
         case idle
         case offline

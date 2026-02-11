@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct ServerGetServiceAuth_Output: Codable, Sendable {
         public var token: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(token: String) {
             self.token = token

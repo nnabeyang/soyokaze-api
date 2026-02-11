@@ -19,11 +19,11 @@ extension comatprototypes {
         public var invitedBy: ServerDefs_InviteCode?
         public var invites: [ServerDefs_InviteCode]?
         public var invitesDisabled: Bool?
-        public var relatedRecords: [LexiconTypeDecoder]?
+        public var relatedRecords: [UnknownATPValue]?
         public var threatSignatures: [AdminDefs_ThreatSignature]?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(deactivatedAt: String? = nil, did: String, email: String? = nil, emailConfirmedAt: String? = nil, handle: String, indexedAt: String, inviteNote: String? = nil, invitedBy: ServerDefs_InviteCode? = nil, invites: [ServerDefs_InviteCode]? = nil, invitesDisabled: Bool? = nil, relatedRecords: [LexiconTypeDecoder]? = nil, threatSignatures: [AdminDefs_ThreatSignature]? = nil) {
+        public init(deactivatedAt: String? = nil, did: String, email: String? = nil, emailConfirmedAt: String? = nil, handle: String, indexedAt: String, inviteNote: String? = nil, invitedBy: ServerDefs_InviteCode? = nil, invites: [ServerDefs_InviteCode]? = nil, invitesDisabled: Bool? = nil, relatedRecords: [UnknownATPValue]? = nil, threatSignatures: [AdminDefs_ThreatSignature]? = nil) {
             self.deactivatedAt = deactivatedAt
             self.did = did
             self.email = email
@@ -66,7 +66,7 @@ extension comatprototypes {
             self.invitedBy = try keyedContainer.decodeIfPresent(ServerDefs_InviteCode.self, forKey: .invitedBy)
             self.invites = try keyedContainer.decodeIfPresent([ServerDefs_InviteCode].self, forKey: .invites)
             self.invitesDisabled = try keyedContainer.decodeIfPresent(Bool.self, forKey: .invitesDisabled)
-            self.relatedRecords = try keyedContainer.decodeIfPresent([LexiconTypeDecoder].self, forKey: .relatedRecords)
+            self.relatedRecords = try keyedContainer.decodeIfPresent([UnknownATPValue].self, forKey: .relatedRecords)
             self.threatSignatures = try keyedContainer.decodeIfPresent([AdminDefs_ThreatSignature].self, forKey: .threatSignatures)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
@@ -101,7 +101,7 @@ extension comatprototypes {
         public var cid: String
         public var did: String
         public var recordUri: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String, did: String, recordUri: String? = nil) {
             self.cid = cid
@@ -143,7 +143,7 @@ extension comatprototypes {
 
     public struct AdminDefs_RepoRef: Codable, Sendable {
         public var did: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String) {
             self.did = did
@@ -178,7 +178,7 @@ extension comatprototypes {
     public struct AdminDefs_StatusAttr: Codable, Sendable {
         public var applied: Bool
         public var ref: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(applied: Bool, ref: String? = nil) {
             self.applied = applied
@@ -217,7 +217,7 @@ extension comatprototypes {
     public struct AdminDefs_ThreatSignature: Codable, Sendable {
         public var property: String
         public var value: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(property: String, value: String) {
             self.property = property

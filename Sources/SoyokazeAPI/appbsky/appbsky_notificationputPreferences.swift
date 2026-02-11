@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct NotificationPutPreferences_Input: Codable, Sendable {
         public var priority: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(priority: Bool) {
             self.priority = priority

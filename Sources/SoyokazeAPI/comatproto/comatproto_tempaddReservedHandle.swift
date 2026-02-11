@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct TempAddReservedHandle_Input: Codable, Sendable {
         public var handle: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(handle: String) {
             self.handle = handle
@@ -43,24 +43,16 @@ extension comatprototypes {
     }
 
     public struct TempAddReservedHandle_Output: Codable, Sendable {
-        public let type = "com.atproto.temp.addReservedHandle"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues

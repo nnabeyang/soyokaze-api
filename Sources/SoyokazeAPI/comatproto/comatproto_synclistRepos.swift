@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct SyncListRepos_Output: Codable, Sendable {
         public var cursor: String?
         public var repos: [SyncListRepos_Repo]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, repos: [SyncListRepos_Repo]) {
             self.cursor = cursor
@@ -53,7 +53,7 @@ extension comatprototypes {
         public var head: String
         public var rev: String
         public var status: SyncListRepos_Repo_Status?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(active: Bool? = nil, did: String, head: String, rev: String, status: SyncListRepos_Repo_Status? = nil) {
             self.active = active
@@ -102,8 +102,6 @@ extension comatprototypes {
     }
 
     public indirect enum SyncListRepos_Repo_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case takendown
         case suspended
         case deleted

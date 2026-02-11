@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct RepoListRecords_Output: Codable, Sendable {
         public var cursor: String?
         public var records: [RepoListRecords_Record]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, records: [RepoListRecords_Record]) {
             self.cursor = cursor
@@ -50,10 +50,10 @@ extension comatprototypes {
     public struct RepoListRecords_Record: Codable, Sendable {
         public var cid: String
         public var uri: String
-        public var value: LexiconTypeDecoder
-        public var _unknownValues: [String: AnyCodable]
+        public var value: UnknownATPValue
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(cid: String, uri: String, value: LexiconTypeDecoder) {
+        public init(cid: String, uri: String, value: UnknownATPValue) {
             self.cid = cid
             self.uri = uri
             self.value = value
@@ -70,7 +70,7 @@ extension comatprototypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.cid = try keyedContainer.decode(String.self, forKey: .cid)
             self.uri = try keyedContainer.decode(String.self, forKey: .uri)
-            self.value = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .value)
+            self.value = try keyedContainer.decode(UnknownATPValue.self, forKey: .value)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {

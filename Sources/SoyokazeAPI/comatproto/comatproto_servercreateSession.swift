@@ -13,7 +13,7 @@ extension comatprototypes {
         public var authFactorToken: String?
         public var identifier: String
         public var password: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(allowTakendown: Bool? = nil, authFactorToken: String? = nil, identifier: String, password: String) {
             self.allowTakendown = allowTakendown
@@ -61,16 +61,16 @@ extension comatprototypes {
         public var accessJwt: String
         public var active: Bool?
         public var did: String
-        public var didDoc: LexiconTypeDecoder?
+        public var didDoc: UnknownATPValue?
         public var email: String?
         public var emailAuthFactor: Bool?
         public var emailConfirmed: Bool?
         public var handle: String
         public var refreshJwt: String
         public var status: ServerCreateSession_Output_Status?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(accessJwt: String, active: Bool? = nil, did: String, didDoc: LexiconTypeDecoder? = nil, email: String? = nil, emailAuthFactor: Bool? = nil, emailConfirmed: Bool? = nil, handle: String, refreshJwt: String, status: ServerCreateSession_Output_Status? = nil) {
+        public init(accessJwt: String, active: Bool? = nil, did: String, didDoc: UnknownATPValue? = nil, email: String? = nil, emailAuthFactor: Bool? = nil, emailConfirmed: Bool? = nil, handle: String, refreshJwt: String, status: ServerCreateSession_Output_Status? = nil) {
             self.accessJwt = accessJwt
             self.active = active
             self.did = did
@@ -102,7 +102,7 @@ extension comatprototypes {
             self.accessJwt = try keyedContainer.decode(String.self, forKey: .accessJwt)
             self.active = try keyedContainer.decodeIfPresent(Bool.self, forKey: .active)
             self.did = try keyedContainer.decode(String.self, forKey: .did)
-            self.didDoc = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .didDoc)
+            self.didDoc = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .didDoc)
             self.email = try keyedContainer.decodeIfPresent(String.self, forKey: .email)
             self.emailAuthFactor = try keyedContainer.decodeIfPresent(Bool.self, forKey: .emailAuthFactor)
             self.emailConfirmed = try keyedContainer.decodeIfPresent(Bool.self, forKey: .emailConfirmed)
@@ -137,8 +137,6 @@ extension comatprototypes {
     }
 
     public indirect enum ServerCreateSession_Output_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case takendown
         case suspended
         case deactivated

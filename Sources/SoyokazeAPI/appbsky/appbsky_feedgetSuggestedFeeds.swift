@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct FeedGetSuggestedFeeds_Output: Codable, Sendable {
         public var cursor: String?
         public var feeds: [FeedDefs_GeneratorView]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, feeds: [FeedDefs_GeneratorView]) {
             self.cursor = cursor

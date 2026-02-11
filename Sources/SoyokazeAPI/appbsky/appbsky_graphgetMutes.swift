@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct GraphGetMutes_Output: Codable, Sendable {
         public var cursor: String?
         public var mutes: [ActorDefs_ProfileView]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, mutes: [ActorDefs_ProfileView]) {
             self.cursor = cursor

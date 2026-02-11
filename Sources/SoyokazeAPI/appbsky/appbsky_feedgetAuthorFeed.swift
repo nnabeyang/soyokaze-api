@@ -9,8 +9,6 @@ import Foundation
 
 extension appbskytypes {
     public indirect enum FeedGetAuthorFeed_Filter: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case postsWithReplies
         case postsNoReplies
         case postsWithMedia
@@ -65,7 +63,7 @@ extension appbskytypes {
     public struct FeedGetAuthorFeed_Output: Codable, Sendable {
         public var cursor: String?
         public var feed: [FeedDefs_FeedViewPost]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, feed: [FeedDefs_FeedViewPost]) {
             self.cursor = cursor

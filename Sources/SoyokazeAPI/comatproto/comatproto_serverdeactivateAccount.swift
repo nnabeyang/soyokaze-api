@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct ServerDeactivateAccount_Input: Codable, Sendable {
         public var deleteAfter: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(deleteAfter: String? = nil) {
             self.deleteAfter = deleteAfter

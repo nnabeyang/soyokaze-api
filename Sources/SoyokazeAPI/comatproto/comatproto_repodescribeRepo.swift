@@ -11,12 +11,12 @@ extension comatprototypes {
     public struct RepoDescribeRepo_Output: Codable, Sendable {
         public var collections: [String]
         public var did: String
-        public var didDoc: LexiconTypeDecoder
+        public var didDoc: UnknownATPValue
         public var handle: String
         public var handleIsCorrect: Bool
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(collections: [String], did: String, didDoc: LexiconTypeDecoder, handle: String, handleIsCorrect: Bool) {
+        public init(collections: [String], did: String, didDoc: UnknownATPValue, handle: String, handleIsCorrect: Bool) {
             self.collections = collections
             self.did = did
             self.didDoc = didDoc
@@ -37,7 +37,7 @@ extension comatprototypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.collections = try keyedContainer.decode([String].self, forKey: .collections)
             self.did = try keyedContainer.decode(String.self, forKey: .did)
-            self.didDoc = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .didDoc)
+            self.didDoc = try keyedContainer.decode(UnknownATPValue.self, forKey: .didDoc)
             self.handle = try keyedContainer.decode(String.self, forKey: .handle)
             self.handleIsCorrect = try keyedContainer.decode(Bool.self, forKey: .handleIsCorrect)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)

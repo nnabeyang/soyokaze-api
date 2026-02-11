@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct TempRevokeAccountCredentials_Input: Codable, Sendable {
         public var account: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(account: String) {
             self.account = account

@@ -9,24 +9,16 @@ import Foundation
 
 extension appbskytypes {
     public struct FeedPostgate_DisableRule: Codable, Sendable {
-        public let type = "app.bsky.feed.postgate#disableRule"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues
@@ -45,7 +37,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -56,7 +48,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .feedPostgateDisableRule(value):
@@ -69,8 +61,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_FeedPostgate: Codable, Sendable {
-    public let type = "app.bsky.feed.postgate"
+public struct appbskytypes_FeedPostgate: ATProtoRecord {
+    public static let nsId = "app.bsky.feed.postgate"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let detachedEmbeddingUris: [String]?
     public let embeddingRules: [appbskytypes.FeedPostgate_EmbeddingRules_Elem]?
@@ -93,7 +88,7 @@ public final class appbskytypes_FeedPostgate: Codable, Sendable {
         case post
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.detachedEmbeddingUris = try keyedContainer.decodeIfPresent([String].self, forKey: .detachedEmbeddingUris)

@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct LabelQueryLabels_Output: Codable, Sendable {
         public var cursor: String?
         public var labels: [LabelDefs_Label]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, labels: [LabelDefs_Label]) {
             self.cursor = cursor

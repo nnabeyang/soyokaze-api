@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct GraphGetRelationships_Output: Codable, Sendable {
         public var actor: String?
         public var relationships: [GraphGetRelationships_Output_Relationships_Elem]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actor: String? = nil, relationships: [GraphGetRelationships_Output_Relationships_Elem]) {
             self.actor = actor
@@ -56,7 +56,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -69,7 +69,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .graphDefsRelationship(value):

@@ -16,7 +16,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -27,7 +27,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .embedExternal(value):
@@ -40,8 +40,6 @@ extension appbskytypes {
     }
 
     public indirect enum ActorStatus_Status: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case appBskyActorStatusLive
         case _other(String)
 
@@ -74,8 +72,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_ActorStatus: Codable, Sendable {
-    public let type = "app.bsky.actor.status"
+public struct appbskytypes_ActorStatus: ATProtoRecord {
+    public static let nsId = "app.bsky.actor.status"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let durationMinutes: Int?
     public let embed: appbskytypes.ActorStatus_Embed?
@@ -98,7 +99,7 @@ public final class appbskytypes_ActorStatus: Codable, Sendable {
         case status
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.durationMinutes = try keyedContainer.decodeIfPresent(Int.self, forKey: .durationMinutes)

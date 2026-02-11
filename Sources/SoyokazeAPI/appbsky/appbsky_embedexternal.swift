@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct EmbedExternal: Codable, Sendable {
         public var external: EmbedExternal_External
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(external: EmbedExternal_External) {
             self.external = external
@@ -47,7 +47,7 @@ extension appbskytypes {
         public var thumb: LexBlob?
         public var title: String
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(description: String, thumb: LexBlob? = nil, title: String, uri: String) {
             self.description = description
@@ -93,7 +93,7 @@ extension appbskytypes {
 
     public struct EmbedExternal_View: Codable, Sendable {
         public var external: EmbedExternal_ViewExternal
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(external: EmbedExternal_ViewExternal) {
             self.external = external
@@ -130,7 +130,7 @@ extension appbskytypes {
         public var thumb: String?
         public var title: String
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(description: String, thumb: String? = nil, title: String, uri: String) {
             self.description = description

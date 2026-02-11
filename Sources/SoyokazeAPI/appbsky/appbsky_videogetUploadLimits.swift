@@ -14,7 +14,7 @@ extension appbskytypes {
         public var message: String?
         public var remainingDailyBytes: Int?
         public var remainingDailyVideos: Int?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(canUpload: Bool, error: String? = nil, message: String? = nil, remainingDailyBytes: Int? = nil, remainingDailyVideos: Int? = nil) {
             self.canUpload = canUpload

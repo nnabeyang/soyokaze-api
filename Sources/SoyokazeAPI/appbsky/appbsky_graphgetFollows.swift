@@ -12,7 +12,7 @@ extension appbskytypes {
         public var cursor: String?
         public var follows: [ActorDefs_ProfileView]
         public var subject: ActorDefs_ProfileView
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, follows: [ActorDefs_ProfileView], subject: ActorDefs_ProfileView) {
             self.cursor = cursor

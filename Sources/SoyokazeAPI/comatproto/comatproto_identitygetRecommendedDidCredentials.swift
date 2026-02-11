@@ -11,11 +11,11 @@ extension comatprototypes {
     public struct IdentityGetRecommendedDidCredentials_Output: Codable, Sendable {
         public var alsoKnownAs: [String]?
         public var rotationKeys: [String]?
-        public var services: LexiconTypeDecoder?
-        public var verificationMethods: LexiconTypeDecoder?
-        public var _unknownValues: [String: AnyCodable]
+        public var services: UnknownATPValue?
+        public var verificationMethods: UnknownATPValue?
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(alsoKnownAs: [String]? = nil, rotationKeys: [String]? = nil, services: LexiconTypeDecoder? = nil, verificationMethods: LexiconTypeDecoder? = nil) {
+        public init(alsoKnownAs: [String]? = nil, rotationKeys: [String]? = nil, services: UnknownATPValue? = nil, verificationMethods: UnknownATPValue? = nil) {
             self.alsoKnownAs = alsoKnownAs
             self.rotationKeys = rotationKeys
             self.services = services
@@ -34,8 +34,8 @@ extension comatprototypes {
             let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
             self.alsoKnownAs = try keyedContainer.decodeIfPresent([String].self, forKey: .alsoKnownAs)
             self.rotationKeys = try keyedContainer.decodeIfPresent([String].self, forKey: .rotationKeys)
-            self.services = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .services)
-            self.verificationMethods = try keyedContainer.decodeIfPresent(LexiconTypeDecoder.self, forKey: .verificationMethods)
+            self.services = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .services)
+            self.verificationMethods = try keyedContainer.decodeIfPresent(UnknownATPValue.self, forKey: .verificationMethods)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {

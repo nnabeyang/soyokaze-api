@@ -7,8 +7,11 @@
 import SwiftAtproto
 import Foundation
 
-public final class comatprototypes_LexiconSchema: Codable, Sendable {
-    public let type = "com.atproto.lexicon.schema"
+public struct comatprototypes_LexiconSchema: ATProtoRecord {
+    public static let nsId = "com.atproto.lexicon.schema"
+    public var type: String {
+        Self.nsId
+    }
     public let lexicon: Int
     public let _unknownValues: [String: AnyCodable]
 
@@ -22,7 +25,7 @@ public final class comatprototypes_LexiconSchema: Codable, Sendable {
         case lexicon
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.lexicon = try keyedContainer.decode(Int.self, forKey: .lexicon)
         let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)

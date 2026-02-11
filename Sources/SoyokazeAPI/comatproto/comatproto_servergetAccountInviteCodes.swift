@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct ServerGetAccountInviteCodes_Output: Codable, Sendable {
         public var codes: [ServerDefs_InviteCode]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(codes: [ServerDefs_InviteCode]) {
             self.codes = codes

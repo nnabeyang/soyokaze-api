@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct UnspeccedGetTrendsSkeleton_Output: Codable, Sendable {
         public var trends: [UnspeccedDefs_SkeletonTrend]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(trends: [UnspeccedDefs_SkeletonTrend]) {
             self.trends = trends

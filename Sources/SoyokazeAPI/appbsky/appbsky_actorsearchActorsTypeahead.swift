@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct ActorSearchActorsTypeahead_Output: Codable, Sendable {
         public var actors: [ActorDefs_ProfileViewBasic]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actors: [ActorDefs_ProfileViewBasic]) {
             self.actors = actors

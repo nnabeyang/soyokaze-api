@@ -12,7 +12,7 @@ extension comatprototypes {
         public var did: String
         public var password: String
         public var token: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String, password: String, token: String) {
             self.did = did

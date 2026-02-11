@@ -12,7 +12,7 @@ extension appbskytypes {
         public var cursor: String?
         public var hitsTotal: Int?
         public var posts: [FeedDefs_PostView]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, hitsTotal: Int? = nil, posts: [FeedDefs_PostView]) {
             self.cursor = cursor
@@ -53,8 +53,6 @@ extension appbskytypes {
     }
 
     public indirect enum FeedSearchPosts_Sort: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case top
         case latest
         case _other(String)

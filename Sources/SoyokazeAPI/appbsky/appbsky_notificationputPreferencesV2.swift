@@ -22,7 +22,7 @@ extension appbskytypes {
         public var subscribedPost: NotificationDefs_Preference?
         public var unverified: NotificationDefs_Preference?
         public var verified: NotificationDefs_Preference?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(chat: NotificationDefs_ChatPreference? = nil, follow: NotificationDefs_FilterablePreference? = nil, like: NotificationDefs_FilterablePreference? = nil, likeViaRepost: NotificationDefs_FilterablePreference? = nil, mention: NotificationDefs_FilterablePreference? = nil, quote: NotificationDefs_FilterablePreference? = nil, reply: NotificationDefs_FilterablePreference? = nil, repost: NotificationDefs_FilterablePreference? = nil, repostViaRepost: NotificationDefs_FilterablePreference? = nil, starterpackJoined: NotificationDefs_Preference? = nil, subscribedPost: NotificationDefs_Preference? = nil, unverified: NotificationDefs_Preference? = nil, verified: NotificationDefs_Preference? = nil) {
             self.chat = chat
@@ -104,7 +104,7 @@ extension appbskytypes {
 
     public struct NotificationPutPreferencesV2_Output: Codable, Sendable {
         public var preferences: NotificationDefs_Preferences
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(preferences: NotificationDefs_Preferences) {
             self.preferences = preferences

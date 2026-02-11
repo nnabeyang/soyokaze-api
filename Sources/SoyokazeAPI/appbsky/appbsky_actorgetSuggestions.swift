@@ -12,7 +12,7 @@ extension appbskytypes {
         public var actors: [ActorDefs_ProfileView]
         public var cursor: String?
         public var recId: Int?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(actors: [ActorDefs_ProfileView], cursor: String? = nil, recId: Int? = nil) {
             self.actors = actors

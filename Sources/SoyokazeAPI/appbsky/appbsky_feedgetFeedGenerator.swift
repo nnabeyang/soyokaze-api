@@ -12,7 +12,7 @@ extension appbskytypes {
         public var isOnline: Bool
         public var isValid: Bool
         public var view: FeedDefs_GeneratorView
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(isOnline: Bool, isValid: Bool, view: FeedDefs_GeneratorView) {
             self.isOnline = isOnline

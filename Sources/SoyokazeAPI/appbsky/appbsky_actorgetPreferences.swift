@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct ActorGetPreferences_Output: Codable, Sendable {
         public var preferences: [ActorDefs_Preferences_Elem]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(preferences: [ActorDefs_Preferences_Elem]) {
             self.preferences = preferences

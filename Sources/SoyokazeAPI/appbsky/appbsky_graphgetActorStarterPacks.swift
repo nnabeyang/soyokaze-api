@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct GraphGetActorStarterPacks_Output: Codable, Sendable {
         public var cursor: String?
         public var starterPacks: [GraphDefs_StarterPackViewBasic]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, starterPacks: [GraphDefs_StarterPackViewBasic]) {
             self.cursor = cursor

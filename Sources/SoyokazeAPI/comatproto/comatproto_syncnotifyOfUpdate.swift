@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct SyncNotifyOfUpdate_Input: Codable, Sendable {
         public var hostname: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(hostname: String) {
             self.hostname = hostname

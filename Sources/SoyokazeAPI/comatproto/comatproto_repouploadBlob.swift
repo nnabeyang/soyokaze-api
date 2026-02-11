@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct RepoUploadBlob_Output: Codable, Sendable {
         public var blob: LexBlob
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(blob: LexBlob) {
             self.blob = blob

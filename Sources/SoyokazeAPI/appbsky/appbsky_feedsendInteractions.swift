@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct FeedSendInteractions_Input: Codable, Sendable {
         public var interactions: [FeedDefs_Interaction]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(interactions: [FeedDefs_Interaction]) {
             self.interactions = interactions
@@ -43,24 +43,16 @@ extension appbskytypes {
     }
 
     public struct FeedSendInteractions_Output: Codable, Sendable {
-        public let type = "app.bsky.feed.sendInteractions"
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init() {
             self._unknownValues = [:]
-        }
-
-        enum CodingKeys: String, CodingKey {
-            case type = "$type"
         }
 
         public init(from decoder: any Decoder) throws {
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
             for key in unknownContainer.allKeys {
-                guard CodingKeys(rawValue: key.stringValue) == nil else {
-                    continue
-                }
                 _unknownValues[key.stringValue] = try unknownContainer.decode(AnyCodable.self, forKey: key)
             }
             self._unknownValues = _unknownValues

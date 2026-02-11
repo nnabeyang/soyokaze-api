@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct ServerRevokeAppPassword_Input: Codable, Sendable {
         public var name: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(name: String) {
             self.name = name

@@ -9,8 +9,6 @@ import Foundation
 
 extension appbskytypes {
     public indirect enum FeedGenerator_ContentMode: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case appBskyFeedDefsContentmodeunspecified
         case appBskyFeedDefsContentmodevideo
         case _other(String)
@@ -55,7 +53,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -66,7 +64,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .comAtprotoLabelDefsSelfLabels(value):
@@ -79,8 +77,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_FeedGenerator: Codable, Sendable {
-    public let type = "app.bsky.feed.generator"
+public struct appbskytypes_FeedGenerator: ATProtoRecord {
+    public static let nsId = "app.bsky.feed.generator"
+    public var type: String {
+        Self.nsId
+    }
     public let acceptsInteractions: Bool?
     public let avatar: LexBlob?
     public let contentMode: appbskytypes.FeedGenerator_ContentMode?
@@ -118,7 +119,7 @@ public final class appbskytypes_FeedGenerator: Codable, Sendable {
         case labels
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.acceptsInteractions = try keyedContainer.decodeIfPresent(Bool.self, forKey: .acceptsInteractions)
         self.avatar = try keyedContainer.decodeIfPresent(LexBlob.self, forKey: .avatar)

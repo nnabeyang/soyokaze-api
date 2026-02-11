@@ -13,7 +13,7 @@ extension appbskytypes {
         public var cursor: String?
         public var repostedBy: [ActorDefs_ProfileView]
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cid: String? = nil, cursor: String? = nil, repostedBy: [ActorDefs_ProfileView], uri: String) {
             self.cid = cid

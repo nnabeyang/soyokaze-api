@@ -13,7 +13,7 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(url: "https://github.com/nnabeyang/swift-atproto", exact: "0.29.2")
+    .package(url: "https://github.com/nnabeyang/swift-atproto", exact: "0.31.0")
   ],
   targets: [
     .target(

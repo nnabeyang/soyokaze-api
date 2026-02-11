@@ -16,7 +16,7 @@ extension appbskytypes {
             case type = "$type"
         }
 
-        public init(from decoder: Decoder) throws {
+        public init(from decoder: any Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             let type = try container.decode(String.self, forKey: .type)
             switch type {
@@ -27,7 +27,7 @@ extension appbskytypes {
             }
         }
 
-        public func encode(to encoder: Encoder) throws {
+        public func encode(to encoder: any Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             switch self {
             case let .comAtprotoLabelDefsSelfLabels(value):
@@ -40,8 +40,11 @@ extension appbskytypes {
     }
 }
 
-public final class appbskytypes_LabelerService: Codable, Sendable {
-    public let type = "app.bsky.labeler.service"
+public struct appbskytypes_LabelerService: ATProtoRecord {
+    public static let nsId = "app.bsky.labeler.service"
+    public var type: String {
+        Self.nsId
+    }
     public let createdAt: String
     public let labels: appbskytypes.LabelerService_Labels?
     public let policies: appbskytypes.LabelerDefs_LabelerPolicies
@@ -70,7 +73,7 @@ public final class appbskytypes_LabelerService: Codable, Sendable {
         case subjectTypes
     }
 
-    required public init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let keyedContainer = try decoder.container(keyedBy: CodingKeys.self)
         self.createdAt = try keyedContainer.decode(String.self, forKey: .createdAt)
         self.labels = try keyedContainer.decodeIfPresent(appbskytypes.LabelerService_Labels.self, forKey: .labels)

@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct ServerDescribeServer_Contact: Codable, Sendable {
         public var email: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(email: String? = nil) {
             self.email = email
@@ -45,7 +45,7 @@ extension comatprototypes {
     public struct ServerDescribeServer_Links: Codable, Sendable {
         public var privacyPolicy: String?
         public var termsOfService: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(privacyPolicy: String? = nil, termsOfService: String? = nil) {
             self.privacyPolicy = privacyPolicy
@@ -88,7 +88,7 @@ extension comatprototypes {
         public var inviteCodeRequired: Bool?
         public var links: ServerDescribeServer_Links?
         public var phoneVerificationRequired: Bool?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(availableUserDomains: [String], contact: ServerDescribeServer_Contact? = nil, did: String, inviteCodeRequired: Bool? = nil, links: ServerDescribeServer_Links? = nil, phoneVerificationRequired: Bool? = nil) {
             self.availableUserDomains = availableUserDomains

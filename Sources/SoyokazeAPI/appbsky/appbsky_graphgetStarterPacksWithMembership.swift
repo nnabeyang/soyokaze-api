@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct GraphGetStarterPacksWithMembership_Output: Codable, Sendable {
         public var cursor: String?
         public var starterPacksWithMembership: [GraphGetStarterPacksWithMembership_StarterPackWithMembership]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, starterPacksWithMembership: [GraphGetStarterPacksWithMembership_StarterPackWithMembership]) {
             self.cursor = cursor
@@ -50,7 +50,7 @@ extension appbskytypes {
     public struct GraphGetStarterPacksWithMembership_StarterPackWithMembership: Codable, Sendable {
         public var listItem: GraphDefs_ListItemView?
         public var starterPack: GraphDefs_StarterPackView
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(listItem: GraphDefs_ListItemView? = nil, starterPack: GraphDefs_StarterPackView) {
             self.listItem = listItem

@@ -12,7 +12,7 @@ extension appbskytypes {
         public var cursor: String?
         public var items: [GraphDefs_ListItemView]
         public var list: GraphDefs_ListView
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, items: [GraphDefs_ListItemView], list: GraphDefs_ListView) {
             self.cursor = cursor

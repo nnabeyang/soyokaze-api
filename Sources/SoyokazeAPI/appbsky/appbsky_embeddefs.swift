@@ -11,7 +11,7 @@ extension appbskytypes {
     public struct EmbedDefs_AspectRatio: Codable, Sendable {
         public var height: Int
         public var width: Int
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(height: Int, width: Int) {
             self.height = height

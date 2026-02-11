@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct GraphUnmuteThread_Input: Codable, Sendable {
         public var root: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(root: String) {
             self.root = root

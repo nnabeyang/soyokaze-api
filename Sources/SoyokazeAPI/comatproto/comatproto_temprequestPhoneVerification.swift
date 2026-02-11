@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct TempRequestPhoneVerification_Input: Codable, Sendable {
         public var phoneNumber: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(phoneNumber: String) {
             self.phoneNumber = phoneNumber

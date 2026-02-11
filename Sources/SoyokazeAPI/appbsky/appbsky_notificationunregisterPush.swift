@@ -13,7 +13,7 @@ extension appbskytypes {
         public var platform: NotificationUnregisterPush_Input_Platform
         public var serviceDid: String
         public var token: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(appId: String, platform: NotificationUnregisterPush_Input_Platform, serviceDid: String, token: String) {
             self.appId = appId
@@ -58,8 +58,6 @@ extension appbskytypes {
     }
 
     public indirect enum NotificationUnregisterPush_Input_Platform: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case ios
         case android
         case web

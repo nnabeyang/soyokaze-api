@@ -16,11 +16,11 @@ extension appbskytypes {
         public var labels: [comatprototypes.LabelDefs_Label]?
         public var reason: NotificationListNotifications_Notification_Reason
         public var reasonSubject: String?
-        public var record: LexiconTypeDecoder
+        public var record: UnknownATPValue
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
-        public init(author: ActorDefs_ProfileView, cid: String, indexedAt: String, isRead: Bool, labels: [comatprototypes.LabelDefs_Label]? = nil, reason: NotificationListNotifications_Notification_Reason, reasonSubject: String? = nil, record: LexiconTypeDecoder, uri: String) {
+        public init(author: ActorDefs_ProfileView, cid: String, indexedAt: String, isRead: Bool, labels: [comatprototypes.LabelDefs_Label]? = nil, reason: NotificationListNotifications_Notification_Reason, reasonSubject: String? = nil, record: UnknownATPValue, uri: String) {
             self.author = author
             self.cid = cid
             self.indexedAt = indexedAt
@@ -54,7 +54,7 @@ extension appbskytypes {
             self.labels = try keyedContainer.decodeIfPresent([comatprototypes.LabelDefs_Label].self, forKey: .labels)
             self.reason = try keyedContainer.decode(NotificationListNotifications_Notification_Reason.self, forKey: .reason)
             self.reasonSubject = try keyedContainer.decodeIfPresent(String.self, forKey: .reasonSubject)
-            self.record = try keyedContainer.decode(LexiconTypeDecoder.self, forKey: .record)
+            self.record = try keyedContainer.decode(UnknownATPValue.self, forKey: .record)
             self.uri = try keyedContainer.decode(String.self, forKey: .uri)
             let unknownContainer = try decoder.container(keyedBy: AnyCodingKeys.self)
             var _unknownValues = [String: AnyCodable]()
@@ -83,8 +83,6 @@ extension appbskytypes {
     }
 
     public indirect enum NotificationListNotifications_Notification_Reason: RawRepresentable, Codable, Sendable {
-        public typealias RawValue = String
-
         case like
         case repost
         case follow
@@ -176,7 +174,7 @@ extension appbskytypes {
         public var notifications: [NotificationListNotifications_Notification]
         public var priority: Bool?
         public var seenAt: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, notifications: [NotificationListNotifications_Notification], priority: Bool? = nil, seenAt: String? = nil) {
             self.cursor = cursor

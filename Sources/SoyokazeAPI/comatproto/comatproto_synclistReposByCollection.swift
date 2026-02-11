@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct SyncListReposByCollection_Output: Codable, Sendable {
         public var cursor: String?
         public var repos: [SyncListReposByCollection_Repo]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(cursor: String? = nil, repos: [SyncListReposByCollection_Repo]) {
             self.cursor = cursor
@@ -49,7 +49,7 @@ extension comatprototypes {
 
     public struct SyncListReposByCollection_Repo: Codable, Sendable {
         public var did: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String) {
             self.did = did

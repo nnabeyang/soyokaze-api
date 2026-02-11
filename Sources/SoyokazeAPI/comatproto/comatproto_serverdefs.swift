@@ -16,7 +16,7 @@ extension comatprototypes {
         public var disabled: Bool
         public var forAccount: String
         public var uses: [ServerDefs_InviteCodeUse]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(available: Int, code: String, createdAt: String, createdBy: String, disabled: Bool, forAccount: String, uses: [ServerDefs_InviteCodeUse]) {
             self.available = available
@@ -75,7 +75,7 @@ extension comatprototypes {
     public struct ServerDefs_InviteCodeUse: Codable, Sendable {
         public var usedAt: String
         public var usedBy: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(usedAt: String, usedBy: String) {
             self.usedAt = usedAt

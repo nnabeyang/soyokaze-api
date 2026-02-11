@@ -14,7 +14,7 @@ extension comatprototypes {
         public var rkey: String
         public var swapCommit: String?
         public var swapRecord: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(collection: String, repo: String, rkey: String, swapCommit: String? = nil, swapRecord: String? = nil) {
             self.collection = collection
@@ -64,7 +64,7 @@ extension comatprototypes {
 
     public struct RepoDeleteRecord_Output: Codable, Sendable {
         public var commit: RepoDefs_CommitMeta?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(commit: RepoDefs_CommitMeta? = nil) {
             self.commit = commit

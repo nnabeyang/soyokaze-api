@@ -10,7 +10,7 @@ import Foundation
 extension comatprototypes {
     public struct ServerReserveSigningKey_Input: Codable, Sendable {
         public var did: String?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(did: String? = nil) {
             self.did = did
@@ -44,7 +44,7 @@ extension comatprototypes {
 
     public struct ServerReserveSigningKey_Output: Codable, Sendable {
         public var signingKey: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(signingKey: String) {
             self.signingKey = signingKey

@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct NotificationUpdateSeen_Input: Codable, Sendable {
         public var seenAt: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(seenAt: String) {
             self.seenAt = seenAt

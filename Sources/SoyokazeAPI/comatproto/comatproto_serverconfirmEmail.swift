@@ -11,7 +11,7 @@ extension comatprototypes {
     public struct ServerConfirmEmail_Input: Codable, Sendable {
         public var email: String
         public var token: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(email: String, token: String) {
             self.email = email

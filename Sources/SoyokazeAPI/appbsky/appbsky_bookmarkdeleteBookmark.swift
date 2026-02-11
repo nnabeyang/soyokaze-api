@@ -10,7 +10,7 @@ import Foundation
 extension appbskytypes {
     public struct BookmarkDeleteBookmark_Input: Codable, Sendable {
         public var uri: String
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(uri: String) {
             self.uri = uri

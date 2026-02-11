@@ -12,7 +12,7 @@ extension comatprototypes {
         public var createdAt: String
         public var name: String
         public var privileged: Bool?
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(createdAt: String, name: String, privileged: Bool? = nil) {
             self.createdAt = createdAt
@@ -54,7 +54,7 @@ extension comatprototypes {
 
     public struct ServerListAppPasswords_Output: Codable, Sendable {
         public var passwords: [ServerListAppPasswords_AppPassword]
-        public var _unknownValues: [String: AnyCodable]
+        public let _unknownValues: [String: AnyCodable]
 
         public init(passwords: [ServerListAppPasswords_AppPassword]) {
             self.passwords = passwords
